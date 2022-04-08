@@ -1,3 +1,31 @@
+## Wild Code School - Reims - Semaines 6 à 11 (du lundi 4 avril au mercredi 11 mai 2022)
+
+## Projet 2 - Intitulé : PoSteries
+
+Equipe de développeurs : 
+Jaafar Cherif, Simon Duc, Louis Dufourmantelle, Valentin Morette.
+
+## Objectifs du projet :
+
+- Développer une application web dynamique à l'aide de HTML, CSS, ReactJS.
+- Utiliser les données d'une API.
+- Appliquer la méthode de gestion de projet agile SCRUM : via les interfaces Google Sheet (product backlog) et Trello (sprint backlog).
+- Utiliser les interfaces de versioning Git et GitHub.
+
+## Concept du projet : 
+
+- L'application web PoSteries en une phrase c'est : "un quiz qui consiste à trouver le titre d'un film à partir de son affiche".
+- API choisie : l'API "The Movie Database" (TMDB) qui recense de nombreuses informations (affiche, synopsis, équipe du film, popularité, box office...) sur des milliers de films et de séries.
+- Quelques précisions sur le système de jeu :
+        Différentes catégories de films à choisir.
+        Quatre choix de réponses possibles.
+        Un temps de réponse limité via un timer.
+        Une affiche de film floutée qui se nettifie en fonction du timer.
+        Un système de scoring lié au timer.
+        Des indices disponibles pour aider le joueur.
+
+## Informations complémentaires sur l'environnement du projet :
+
 ## Concept
 
 Ce template est conçu pour servir de base à tous les projets (P2/P3) suivants la stack React-Node-MySQL telle qu'enseignée à la Wild Code School. Il est préconfiguré avec un ensemble d'outils qui aideront les élèves à produire un code correspondant mieux aux standards du monde du travail et plus facile à maintenir, tout en restant simple à utiliser.
