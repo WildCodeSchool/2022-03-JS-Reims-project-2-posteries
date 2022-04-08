@@ -1,7 +1,7 @@
-function Answer() {
+function Answer(props) {
   return (
     <div>
-      <p>Le bon la brute et le truand</p>
+      <p>{props}</p>
     </div>
   );
 }
