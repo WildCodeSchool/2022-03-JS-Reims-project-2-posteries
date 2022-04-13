@@ -41,6 +41,7 @@ h1 {
 .answer {
     text-align: center;
     background-color: #C28C19;
+    color: white;
     width: 50%;
     padding: 1rem;
 }

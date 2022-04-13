@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 
-function Answer({ name }) {
+function Answer({ title }) {
   return (
-    <div className="answer">
-      <p>{name}</p>
-    </div>
+    <button type="submit" className="answer">
+      <p>{title}</p>
+    </button>
   );
 }
 
 Answer.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Answer;
+
+/* <button className="answer" onClick={title === movie.original_title ? alert "good answer" : alert "wrong answser"}><p>{title}</p></button> */
