@@ -31,8 +31,10 @@ export default function Home() {
         <Answer title="Les dix commandements" />
         <Answer title="Ponyo sur la falaise" />
       </div>
-      <p>Setting</p>
-      <p>Hint</p>
+      <div className="settingHint">
+        <p>Setting</p>
+        <p>Hint</p>
+      </div>
     </>
   );
 }
