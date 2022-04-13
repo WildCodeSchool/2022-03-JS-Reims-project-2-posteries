@@ -1,5 +1,6 @@
 import Answer from "../components/Answer";
 import Poster from "../components/Poster";
+import Answer from "../components/Answer";
 
 export default function Home() {
   return (
