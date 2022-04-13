@@ -3,21 +3,19 @@ import { useState, useEffect } from "react";
 import Answer from "../components/Answer";
 import Poster from "../components/Poster";
 
-const test = Math.floor(Math.random() * 150000) + 12;
-
 export default function Home() {
   const [movie, setMovie] = useState([]);
 
-  function film() {
+  function getMovie() {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${test}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
+        `https://api.themoviedb.org/3/movie/550?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       )
       .then((resp) => resp.data)
       .then((data) => setMovie(data));
   }
 
-  useEffect(film, []);
+  useEffect(getMovie, []);
 
   return (
     <>
