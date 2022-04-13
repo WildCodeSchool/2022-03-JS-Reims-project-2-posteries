@@ -19,16 +19,22 @@ export default function Home() {
 
   return (
     <>
-      <p>Timer</p>
-      <p>Points</p>
+      <div className="timerPoints">
+        <p>Timer</p>
+        <p>Points</p>
+      </div>
       <h1>Posteries</h1>
       <Poster poster={movie.poster_path} title={movie.original_title} />
-      <Answer name={movie.original_title} />
-      <Answer name="Mary à tout prix" />
-      <Answer name="Les dix commandements" />
-      <Answer name="Ponyo sur la falaise" />
-      <p>Setting</p>
-      <p>Hint</p>
+      <div className="answers">
+        <Answer title={movie.original_title} />
+        <Answer title="Mary à tout prix" />
+        <Answer title="Les dix commandements" />
+        <Answer title="Ponyo sur la falaise" />
+      </div>
+      <div className="settingHint">
+        <p>Setting</p>
+        <p>Hint</p>
+      </div>
     </>
   );
 }

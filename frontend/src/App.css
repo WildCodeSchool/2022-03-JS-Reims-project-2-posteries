@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    background-color: #222F42;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.timerPoints {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.centralPoster {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+}
+
+.centralPoster > img {
+    box-sizing: border-box;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.answers {
+    margin: auto;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-items: stretch;
+    padding: 1rem;
+}
+
+.answer {
+    text-align: center;
+    background-color: #C28C19;
+    color: white;
+    padding: 1rem;
+}
+
+.settingHint {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
