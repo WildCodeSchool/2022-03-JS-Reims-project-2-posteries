@@ -1,17 +1,25 @@
 import PropTypes from "prop-types";
 
-function Answer({ title }) {
+function Answer({ title, res }) {
   return (
-    <button type="submit" className="answer">
-      <p>{title}</p>
+    <button
+      type="submit"
+      className="answer"
+      onClick={
+        res
+          ? () => window.alert("Bonne réponse !")
+          : () => window.alert("Mauvaise réponse !")
+      }
+    >
+      {title}
     </button>
   );
 }
 
 Answer.propTypes = {
   title: PropTypes.string.isRequired,
+  res: PropTypes.bool.isRequired,
+  // movie: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default Answer;
-
-/* <button className="answer" onClick={title === movie.original_title ? alert "good answer" : alert "wrong answser"}><p>{title}</p></button> */
