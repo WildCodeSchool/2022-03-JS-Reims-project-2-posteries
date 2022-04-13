@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 
 function Poster({ poster, title }) {
-  return <img src={`https://image.tmdb.org/t/p/w300${poster}`} alt={title} />;
+  return (
+    <div className="centralPoster">
+      <img src={`https://image.tmdb.org/t/p/w300${poster}`} alt={title} />
+    </div>
+  );
 }
 
 Poster.propTypes = {
