@@ -39,10 +39,6 @@ export default function Home() {
         <Answer title="Les dix commandements" movie={movie} res={false} />
         <Answer title="Ponyo sur la falaise" movie={movie} res={false} />
       </div>
-      <div className="settingHint">
-        <p>Setting</p>
-        <p>Hint</p>
-      </div>
     </>
   );
 }
