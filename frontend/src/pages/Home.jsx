@@ -26,10 +26,10 @@ export default function Home() {
       <h1>Posteries</h1>
       <Poster poster={movie.poster_path} title={movie.original_title} />
       <div className="answers">
-        <Answer title={movie.original_title} />
-        <Answer title="Mary à tout prix" />
-        <Answer title="Les dix commandements" />
-        <Answer title="Ponyo sur la falaise" />
+        <Answer title={movie.original_title} movie={movie} res />
+        <Answer title="Mary à tout prix" movie={movie} res={false} />
+        <Answer title="Les dix commandements" movie={movie} res={false} />
+        <Answer title="Ponyo sur la falaise" movie={movie} res={false} />
       </div>
       <div className="settingHint">
         <p>Setting</p>
