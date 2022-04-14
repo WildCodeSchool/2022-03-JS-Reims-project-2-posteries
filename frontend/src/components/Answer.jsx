@@ -19,7 +19,6 @@ function Answer({ title, res }) {
 Answer.propTypes = {
   title: PropTypes.string.isRequired,
   res: PropTypes.bool.isRequired,
-  // movie: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default Answer;
