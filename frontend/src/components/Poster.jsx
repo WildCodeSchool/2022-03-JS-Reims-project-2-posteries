@@ -1,9 +1,26 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function Poster({ poster, title }) {
+  const [isActive, setActive] = useState(false);
+
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
+
   return (
-    <div className="centralPoster">
-      <img src={`https://image.tmdb.org/t/p/w300${poster}`} alt={title} />
+    <div
+      className="centralPoster"
+      onKeyPress={toggleClass}
+      onClick={toggleClass}
+      role="button"
+      tabIndex="0"
+    >
+      <img
+        src={`https://image.tmdb.org/t/p/w300${poster}`}
+        alt={title}
+        className={isActive ? "no-blur" : "blur"}
+      />
     </div>
   );
 }
