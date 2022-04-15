@@ -48,17 +48,21 @@ h1 {
     text-align: center;
 }
 
-.centralPoster > img {
+.blur {
     box-sizing: border-box;
     width: auto;
     height: 100%;
     object-fit: contain;
     filter: blur(10px);
-    transition: all 15s linear;
 }
 
-.centralPoster > img:hover{
+.no-blur{
     filter: blur(0px);
+    transition: all 15s linear;
+    box-sizing: border-box;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
 }
 
 .answers {
