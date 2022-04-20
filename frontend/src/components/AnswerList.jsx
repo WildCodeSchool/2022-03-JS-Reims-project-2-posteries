@@ -26,7 +26,7 @@ function AnswerList() {
 
   return answersArray
     .sort(() => Math.random() - 0.5)
-    .map((data) => <Answer title={data.title} res={data.res} id={data.id} />);
+    .map((data) => <Answer title={data.title} res={data.res} key={data.id} />);
 }
 
 export default AnswerList;
