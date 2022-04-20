@@ -4,15 +4,15 @@ import { useState } from "react";
 function Poster({ poster, title }) {
   const [isActive, setActive] = useState(false);
 
-  const toggleClass = () => {
-    setActive(!isActive);
+  const activate = () => {
+    setActive(true);
   };
 
   return (
     <div
       className="centralPoster"
-      onKeyPress={toggleClass}
-      onClick={toggleClass}
+      onKeyPress={activate}
+      onClick={activate}
       role="button"
       tabIndex="0"
     >

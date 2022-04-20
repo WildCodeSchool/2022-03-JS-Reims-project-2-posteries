@@ -1,16 +1,25 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function Answer({ title, res }) {
-  return (
-    <button
-      type="submit"
-      className="answer"
-      onClick={
-        res
-          ? () => window.alert("Bonne réponse !")
-          : () => window.alert("Mauvaise réponse !")
+  const [isActive, setActive] = useState(false);
+
+  const activate = () => {
+    setActive(true);
+  };
+
+  function resultStyle() {
+    if (isActive) {
+      if (res === true) {
+        return "answer good-answer";
       }
-    >
+      return "answer wrong-answer";
+    }
+    return "answer";
+  }
+
+  return (
+    <button type="submit" onClick={activate} className={resultStyle()}>
       {title}
     </button>
   );
