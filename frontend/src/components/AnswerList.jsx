@@ -1,19 +1,33 @@
 import Answer from "./Answer";
 
 function AnswerList() {
-  const array = [
-    <Answer title="Batman Begins" res />,
-    <Answer title="Mary à tout prix" res={false} />,
-    <Answer title="Les dix commandements" res={false} />,
-    <Answer title="Ponyo sur la falaise" res={false} />,
+  const answerArray = [
+    {
+      title: "Batman Begins",
+      res: true,
+      id: 1,
+      // add res and an id to provide keys to the array
+    },
+    {
+      title: "Mary à tout prix",
+      res: false,
+      id: 2,
+    },
+    {
+      title: "Les Dix Commandements",
+      res: false,
+      id: 3,
+    },
+    {
+      title: "Ponyo Sur La Falaise",
+      res: false,
+      id: 4,
+    },
   ];
-  // return myArray[Math.floor(Math.random() * myArray.length)];
-  for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
 
-  return array;
+  return answerArray
+    .sort(() => Math.random() - 0.5)
+    .map((data) => <Answer title={data.title} />);
 }
 
 export default AnswerList;
