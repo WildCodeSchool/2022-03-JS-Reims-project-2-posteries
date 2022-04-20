@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Answer from "../components/Answer";
+import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
 export default function Home() {
@@ -42,6 +42,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Posteries</h1>
       <div className="timerPoints">
         <p>Timer</p>
         <p>Points</p>
