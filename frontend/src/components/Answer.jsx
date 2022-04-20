@@ -4,22 +4,22 @@ import { useState } from "react";
 function Answer({ title, res }) {
   const [isActive, setActive] = useState(false);
 
-  const ToggleClass = () => {
+  const activate = () => {
     setActive(true);
   };
 
   function resultStyle() {
     if (isActive) {
       if (res === true) {
-        return "good-answer";
+        return "answer good-answer";
       }
-      return "wrong-answer";
+      return "answer wrong-answer";
     }
     return "answer";
   }
 
   return (
-    <button type="submit" onClick={ToggleClass} className={resultStyle()}>
+    <button type="submit" onClick={activate} className={resultStyle()}>
       {title}
     </button>
   );

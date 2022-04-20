@@ -91,23 +91,9 @@ h1 {
 }
 
 .good-answer{
-    text-align: center;
     background-color:darkgreen;
-    color: white;
-    padding: 1rem;
-    font-family: limelight;
-    border : none;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px lime;
 }
 
 .wrong-answer{
-    text-align: center;
     background-color: darkred;
-    color: white;
-    padding: 1rem;
-    font-family: limelight;
-    border : none;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px red;
 }
