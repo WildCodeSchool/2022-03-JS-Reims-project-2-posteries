@@ -42,6 +42,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Posteries</h1>
       <div className="timerPoints">
         <p>Timer</p>
         <p>Points</p>
