@@ -1,12 +1,11 @@
 import Answer from "./Answer";
 
 function AnswerList() {
-  const answerArray = [
+  const answersArray = [
     {
       title: "Batman Begins",
       res: true,
       id: 1,
-      // add res and an id to provide keys to the array
     },
     {
       title: "Mary à tout prix",
@@ -25,9 +24,9 @@ function AnswerList() {
     },
   ];
 
-  return answerArray
+  return answersArray
     .sort(() => Math.random() - 0.5)
-    .map((data) => <Answer title={data.title} />);
+    .map((data) => <Answer title={data.title} res={data.res} id={data.id} />);
 }
 
 export default AnswerList;
