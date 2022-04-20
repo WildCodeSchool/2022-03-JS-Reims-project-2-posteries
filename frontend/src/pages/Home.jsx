@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Answer from "../components/Answer";
+import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
 export default function Home() {
@@ -27,17 +27,14 @@ export default function Home() {
 
   return (
     <>
+      <h1>Posteries</h1>
       <div className="timerPoints">
         <p>Timer</p>
         <p>Points</p>
       </div>
-      <h1>Posteries</h1>
       <Poster poster={movie.poster_path} title={movie.original_title} />
       <div className="answers">
-        <Answer title={movie.original_title} movie={movie} res />
-        <Answer title="Mary à tout prix" movie={movie} res={false} />
-        <Answer title="Les dix commandements" movie={movie} res={false} />
-        <Answer title="Ponyo sur la falaise" movie={movie} res={false} />
+        <AnswerList />
       </div>
     </>
   );
