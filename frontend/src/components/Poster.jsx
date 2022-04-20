@@ -5,7 +5,7 @@ function Poster({ poster, title }) {
   const [isActive, setActive] = useState(false);
 
   const toggleClass = () => {
-    setActive(!isActive);
+    setActive(true);
   };
 
   return (
