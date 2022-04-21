@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-function Poster({ poster, title, isBlurActive }) {
+function Poster({ poster, title }) {
   return (
     <div className="centralPoster">
       <img
         src={`https://image.tmdb.org/t/p/w300${poster}`}
         alt={title}
-        className={isBlurActive ? "no-blur" : "blur"}
+        className="no-blur"
       />
     </div>
   );
@@ -15,7 +15,6 @@ function Poster({ poster, title, isBlurActive }) {
 Poster.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  isBlurActive: PropTypes.func.isRequired,
 };
 
 export default Poster;
