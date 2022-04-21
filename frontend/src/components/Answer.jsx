@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Answer({ title, res }) {
   const [isActive, setActive] = useState(false);
-
   const activate = () => {
     setActive(true);
   };

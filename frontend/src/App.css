@@ -87,13 +87,21 @@ h1 {
 
 .answer:hover{
     box-shadow: 0px 0px 5px #C28C19;
-    
 }
 
 .good-answer{
     background-color:darkgreen;
+    box-shadow: 0px 0px 10px limegreen;
+}
+.good-answer:hover{
+    box-shadow: 0px 0px 10px limegreen;
 }
 
 .wrong-answer{
     background-color: darkred;
+    box-shadow: 0px 0px 10px red;
+}
+
+.wrong-answer:hover{
+    box-shadow: 0px 0px 10px red;
 }
