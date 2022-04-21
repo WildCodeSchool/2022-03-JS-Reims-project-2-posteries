@@ -44,6 +44,7 @@ export default function Home() {
   }
 
   function nextLevel() {
+    setMovie();
     getMovie();
   }
 
