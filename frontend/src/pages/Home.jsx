@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Answer from "../components/Answer";
+import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
 const movieIdArray = [
@@ -60,21 +60,11 @@ export default function Home() {
         <>
           <Poster poster={movie.poster_path} title={movie.original_title} />
           <div className="answers">
-            <Answer title={movie.original_title} movie={movie} res />
-            <Answer
-              title={falseMovie1.original_title}
-              movie={falseMovie1}
-              res={false}
-            />
-            <Answer
-              title={falseMovie2.original_title}
-              movie={falseMovie2}
-              res={false}
-            />
-            <Answer
-              title={falseMovie3.original_title}
-              movie={falseMovie3}
-              res={false}
+            <AnswerList
+              title1={movie.original_title}
+              title2={falseMovie1.original_title}
+              title3={falseMovie2.original_title}
+              title4={falseMovie3.original_title}
             />
           </div>
         </>
