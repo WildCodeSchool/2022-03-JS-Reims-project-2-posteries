@@ -15,6 +15,7 @@ function Poster({ poster, title, isBlurActive }) {
 Poster.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  isBlurActive: PropTypes.func.isRequired,
 };
 
 export default Poster;
