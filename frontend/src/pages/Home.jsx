@@ -43,9 +43,16 @@ export default function Home() {
       .then((data) => setFalseMovie3(data));
   }
 
+  const [isBlurActive, setBlurActive] = useState(true);
+
+  const activateBlur = () => {
+    setBlurActive(false);
+  };
+
   function nextLevel() {
     setMovie();
     getMovie();
+    activateBlur();
   }
 
   useEffect(getMovie, []);
@@ -59,7 +66,11 @@ export default function Home() {
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
         <>
-          <Poster poster={movie.poster_path} title={movie.original_title} />
+          <Poster
+            poster={movie.poster_path}
+            title={movie.original_title}
+            isBlurActive={isBlurActive}
+          />
           <div className="answers">
             <AnswerList
               title1={movie.original_title}
