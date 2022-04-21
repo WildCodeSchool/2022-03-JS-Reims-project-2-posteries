@@ -2,7 +2,7 @@
 
 ## Projet 2 - Intitulé : PoSteries
 
-Equipe de développeurs : 
+Equipe de développeurs :
 Jaafar Cherif, Simon Duc, Louis Dufourmantelle, Valentin Morette.
 
 ## Objectifs du projet :
@@ -12,17 +12,17 @@ Jaafar Cherif, Simon Duc, Louis Dufourmantelle, Valentin Morette.
 - Appliquer la méthode de gestion de projet agile SCRUM : via les interfaces Google Sheet (product backlog) et Trello (sprint backlog).
 - Utiliser les interfaces de versioning Git et GitHub.
 
-## Concept du projet : 
+## Concept du projet :
 
 - L'application web PoSteries en une phrase c'est : "un quiz qui consiste à trouver le titre d'un film à partir de son affiche".
 - API choisie : l'API "The Movie Database" (TMDB) qui recense de nombreuses informations (affiche, synopsis, équipe du film, popularité, box office...) sur des milliers de films et de séries.
 - Quelques précisions sur le système de jeu :
-        Différentes catégories de films à choisir.
-        Quatre choix de réponses possibles.
-        Un temps de réponse limité via un timer.
-        Une affiche de film floutée qui se nettifie en fonction du timer.
-        Un système de scoring lié au timer.
-        Des indices disponibles pour aider le joueur.
+  Différentes catégories de films à choisir.
+  Quatre choix de réponses possibles.
+  Un temps de réponse limité via un timer.
+  Une affiche de film floutée qui se nettifie en fonction du timer.
+  Un système de scoring lié au timer.
+  Des indices disponibles pour aider le joueur.
 
 ## Informations complémentaires sur l'environnement du projet :
 
