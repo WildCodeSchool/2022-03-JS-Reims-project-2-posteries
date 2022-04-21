@@ -1,24 +1,24 @@
 import Answer from "./Answer";
 
-function AnswerList() {
+function AnswerList(props) {
   const answersArray = [
     {
-      title: "Batman Begins",
+      title: props.title1,
       res: true,
       id: 1,
     },
     {
-      title: "Mary à tout prix",
+      title: props.title2,
       res: false,
       id: 2,
     },
     {
-      title: "Les Dix Commandements",
+      title: props.title3,
       res: false,
       id: 3,
     },
     {
-      title: "Ponyo Sur La Falaise",
+      title: props.title4,
       res: false,
       id: 4,
     },
