@@ -59,19 +59,19 @@ export default function Home() {
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
         <>
-          <Poster poster={movie.poster_path} title={movie.original_title} />
+          <Poster poster={movie.poster_path} title={movie.title} />
           <div className="answers">
             <AnswerList
-              title1={movie.original_title}
-              title2={falseMovie1.original_title}
-              title3={falseMovie2.original_title}
-              title4={falseMovie3.original_title}
+              title1={movie.title}
+              title2={falseMovie1.title}
+              title3={falseMovie2.title}
+              title4={falseMovie3.title}
             />
           </div>
         </>
       )}
       <button type="button" onClick={nextLevel}>
-        NEXT QUESTION
+        Next
       </button>
     </>
   );

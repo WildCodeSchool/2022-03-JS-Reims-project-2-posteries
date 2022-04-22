@@ -48,17 +48,13 @@ h1 {
     text-align: center;
 }
 
-.blur {
-    box-sizing: border-box;
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-    filter: blur(10px);
+@keyframes image_blur {
+    0% { filter: blur(20px);}
+    100% { filter: blur(0px);}
 }
 
-.no-blur{
-    filter: blur(0px);
-    transition: all 15s linear;
+.no-blur {
+    animation: image_blur ease-in 15s; 
     box-sizing: border-box;
     width: auto;
     height: 100%;
