@@ -71,7 +71,7 @@ export default function Home() {
           </div>
         </>
       )}
-      <button type="button" onClick={nextLevel}>
+      <button type="button" onClick={nextLevel} className="next">
         Next
       </button>
     </>
