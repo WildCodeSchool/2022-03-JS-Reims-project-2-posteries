@@ -29,6 +29,7 @@ body {
 .timerPoints {
     display: flex;
     justify-content: space-around;
+    font-size: 1.1rem;
 }
 
 h1 {
@@ -77,6 +78,7 @@ h1 {
     color: white;
     padding: 1rem;
     font-family: limelight;
+    font-size: 1.1rem;
     border : none;
     border-radius: 10px;
 }
@@ -100,4 +102,11 @@ h1 {
 
 .wrong-answer:hover{
     box-shadow: 0px 0px 10px red;
+}
+
+.next {
+    font-family: limelight;
+    font-size: 1.1rem;
+    background-color: white;
+    color: #222F42;
 }
