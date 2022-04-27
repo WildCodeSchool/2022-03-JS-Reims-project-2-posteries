@@ -4,11 +4,11 @@ function Welcome() {
   return (
     <div className="welcome">
       <h1>PoSteries</h1>
-      <p className="presentation">
+      <h2 className="presentation">
         Hello everybody! You wanna play? Choose a category. See a movie poster.
-        Guess its title. <br/> GLHF!
-      </p>
-      <ul>
+        Guess its title. <br /> GLHF!
+      </h2>
+      <ul className="category-list">
         <CategoryList />
       </ul>
     </div>

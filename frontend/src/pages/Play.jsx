@@ -1,19 +1,28 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
-const movieIdArray = [
+/* const movieIdArray = [
   11, 12, 13, 14, 15, 18, 19, 22, 24, 28, 101, 105, 107, 111, 115, 116, 118,
   120, 128, 129, 146, 153, 161, 162, 170, 272, 329, 406, 429, 500, 524, 550,
   1878, 22538, 27205, 37799, 157336, 313369, 333339, 419430,
-];
+]; */
 
-export default function Home() {
+const movieCatalog = {
+  "Science Fiction": [105, 329, 157336, 11],
+  Drama: [12, 13, 14, 15],
+};
+
+export default function Play() {
   const [movie, setMovie] = useState();
   const [falseMovie1, setFalseMovie1] = useState();
   const [falseMovie2, setFalseMovie2] = useState();
   const [falseMovie3, setFalseMovie3] = useState();
+  const { category } = useParams();
+
+  const movieIdArray = movieCatalog[category];
 
   function getMovie() {
     movieIdArray.sort(() => Math.random() - 0.5);
