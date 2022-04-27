@@ -10,7 +10,7 @@ const categoryArray = [
     id: 2,
   },
   {
-    category: "Fantasy",
+    category: "Comedy",
     id: 3,
   },
   {

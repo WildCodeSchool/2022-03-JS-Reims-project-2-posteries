@@ -2,7 +2,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function Category({ category }) {
-  return <li className="category"><Link to="/game" element={category}>{category}</Link></li>;
+  return (
+    <li className="category">
+      <Link to="/game" element={category}>
+        {category}
+      </Link>
+    </li>
+  );
 }
 
 Category.propTypes = {
