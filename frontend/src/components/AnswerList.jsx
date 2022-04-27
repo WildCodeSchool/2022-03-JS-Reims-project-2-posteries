@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Answer from "./Answer";
 
 function AnswerList(props) {
@@ -22,11 +23,11 @@ function AnswerList(props) {
       res: false,
       id: 4,
     },
-  ];
+  ].sort(() => Math.random() - 0.5);
 
-  return answersArray
-    .sort(() => Math.random() - 0.5)
-    .map((data) => <Answer title={data.title} res={data.res} key={data.id} />);
+  return answersArray.map((data) => (
+    <Answer title={data.title} res={data.res} key={data.id} />
+  ));
 }
 
-export default AnswerList;
+export default memo(AnswerList);

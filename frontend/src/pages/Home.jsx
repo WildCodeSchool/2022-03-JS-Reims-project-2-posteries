@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useTimer } from "use-timer";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
@@ -14,6 +15,11 @@ export default function Home() {
   const [falseMovie1, setFalseMovie1] = useState();
   const [falseMovie2, setFalseMovie2] = useState();
   const [falseMovie3, setFalseMovie3] = useState();
+  const { time, start, reset } = useTimer({
+    initialTime: 15,
+    timerType: "DECREMENTAL",
+    endTime: 0,
+  });
 
   function getMovie() {
     movieIdArray.sort(() => Math.random() - 0.5);
@@ -47,6 +53,8 @@ export default function Home() {
   function nextLevel() {
     setMovie();
     getMovie();
+    reset();
+    start();
   }
 
   useEffect(getMovie, []);
@@ -55,7 +63,7 @@ export default function Home() {
     <>
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <p>Timer</p>
+        <p>{time}</p>
         <p>Points</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
