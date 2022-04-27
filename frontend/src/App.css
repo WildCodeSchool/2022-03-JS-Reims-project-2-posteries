@@ -18,6 +18,32 @@ body {
     background-color: #222F42;
 }
 
+.welcome {
+    background-color: #222F42;
+    background-image: url(https://us.123rf.com/450wm/bahtiarmaulana/bahtiarmaulana1805/bahtiarmaulana180500011/101191237-podium-avec-tapis-rouge-et-corde-de-barri%C3%A8re-%C3%A0-la-lueur-des-projecteurs.jpg?ver=6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.presentation {
+    line-height: 1.5rem;
+    margin: 1.5rem;
+}
+
+.category {
+    list-style-type: none;
+    text-align: center;
+    background-color: #C28C19;
+    color: white;
+    padding: 1rem;
+    font-family: limelight;
+    font-size: 1.1rem;
+    border : none;
+    border-radius: 10px;
+    margin: 1.5rem;
+}
+
 .App {
     background-color: #222F42;
     color: wheat;

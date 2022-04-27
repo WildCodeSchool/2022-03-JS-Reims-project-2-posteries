@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 function Category({ category }) {
-  return <li>{category}</li>;
+  return <li className="category">{category}</li>;
 }
 
 Category.propTypes = {
