@@ -192,3 +192,23 @@ h1 {
   color: #222f42;
   width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .answers {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 40%;
+  }
+
+  .desktop-flex {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .centralPoster {
+    flex: none;
+    padding: 1rem;
+  }
+  
+}

@@ -88,7 +88,7 @@ export default function Play() {
         <p>Points</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
-        <>
+        <div className="desktop-flex">
           <Poster poster={movie.poster_path} title={movie.title} />
           <div className="answers">
             <AnswerList
@@ -98,7 +98,7 @@ export default function Play() {
               title4={falseMovie3.title}
             />
           </div>
-        </>
+        </div>
       )}
       <button type="button" onClick={nextLevel} className="next">
         Next
