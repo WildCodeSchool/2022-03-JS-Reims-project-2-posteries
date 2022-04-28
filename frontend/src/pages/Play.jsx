@@ -39,6 +39,7 @@ export default function Play() {
     initialTime: 15,
     timerType: "DECREMENTAL",
     endTime: 0,
+    autostart: true,
   });
 
   function getMovie() {
@@ -80,10 +81,10 @@ export default function Play() {
   useEffect(getMovie, []);
 
   return (
-    <>
+    <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <p>{time}</p>
+        {time < 10 ? <p>⏱️ 0{time}</p> : <p>⏱️ {time}</p>}
         <p>Points</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
@@ -102,6 +103,6 @@ export default function Play() {
       <button type="button" onClick={nextLevel} className="next">
         Next
       </button>
-    </>
+    </div>
   );
 }
