@@ -5,12 +5,6 @@ import { useTimer } from "use-timer";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
-/* const movieIdArray = [
-  11, 12, 13, 14, 15, 18, 19, 22, 24, 28, 101, 105, 107, 111, 115, 116, 118,
-  120, 128, 129, 146, 153, 161, 162, 170, 272, 329, 406, 429, 500, 524, 550,
-  1878, 22538, 27205, 37799, 157336, 313369, 333339, 419430,
-]; */
-
 const movieCatalog = {
   "Science Fiction": [
     105, 329, 157336, 11, 335984, 333339, 62, 49047, 603, 19, 75612, 18, 152601,
