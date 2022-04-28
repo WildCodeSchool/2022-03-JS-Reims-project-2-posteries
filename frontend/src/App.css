@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "metropolis";
-    src: url(./assets/Metropolis1920-Regular.ttf);
+  font-family: "metropolis";
+  src: url(./assets/Metropolis1920-Regular.ttf);
 }
 
 @font-face {
-    font-family: "limelight";
-    src: url(./assets/Limelight-Regular.ttf);
+  font-family: "limelight";
+  src: url(./assets/Limelight-Regular.ttf);
 }
 
 @keyframes flicker {
@@ -30,27 +30,66 @@
   }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: limelight;
-    background-color: #222F42;
+  font-family: limelight;
+  background-color: #222f42;
 }
 
-.App {
-    background-color: #222F42;
-    color: wheat;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.welcome {
+  background-color: #222f42;
+  background-image: url(https://us.123rf.com/450wm/bahtiarmaulana/bahtiarmaulana1805/bahtiarmaulana180500011/101191237-podium-avec-tapis-rouge-et-corde-de-barri%C3%A8re-%C3%A0-la-lueur-des-projecteurs.jpg?ver=6);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.presentation {
+  color: white;
+  line-height: 1.5rem;
+  margin: 1.5rem;
+}
+
+.category {
+  text-align: center;
+  background-color: #c28c19;
+  color: white;
+  padding: 1rem;
+  font-family: limelight;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.category-list {
+  list-style-type: none;
+  align-self: stretch;
+}
+
+.category-item {
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .timerPoints {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.1rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
 }
 
 h1 {
@@ -74,69 +113,73 @@ h1 {
 }
 
 .centralPoster {
-    flex: 1;
-    padding: 1rem;
-    text-align: center;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
 }
 
 @keyframes image_blur {
-    0% { filter: blur(20px);}
-    100% { filter: blur(0px);}
+  0% {
+    filter: blur(20px);
+  }
+  100% {
+    filter: blur(0px);
+  }
 }
 
 .no-blur {
-    animation: image_blur ease-in 15s; 
-    box-sizing: border-box;
-    width: auto;
-    height: 100%;
-    object-fit: contain;
+  animation: image_blur ease-in 15s;
+  box-sizing: border-box;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 .answers {
-    margin: auto;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    justify-items: stretch;
-    padding: 1rem;
+  margin: auto;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: stretch;
+  padding: 1rem;
 }
 
 .answer {
-    text-align: center;
-    background-color: #C28C19;
-    color: white;
-    padding: 1rem;
-    font-family: limelight;
-    font-size: 1.1rem;
-    border : none;
-    border-radius: 10px;
+  text-align: center;
+  background-color: #c28c19;
+  color: white;
+  padding: 1rem;
+  font-family: limelight;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
 }
 
-.answer:hover{
-    box-shadow: 0px 0px 5px #C28C19;
+.answer:hover {
+  box-shadow: 0px 0px 5px #c28c19;
 }
 
-.good-answer{
-    background-color:darkgreen;
-    box-shadow: 0px 0px 10px limegreen;
+.good-answer {
+  background-color: darkgreen;
+  box-shadow: 0px 0px 10px limegreen;
 }
-.good-answer:hover{
-    box-shadow: 0px 0px 10px limegreen;
-}
-
-.wrong-answer{
-    background-color: darkred;
-    box-shadow: 0px 0px 10px red;
+.good-answer:hover {
+  box-shadow: 0px 0px 10px limegreen;
 }
 
-.wrong-answer:hover{
-    box-shadow: 0px 0px 10px red;
+.wrong-answer {
+  background-color: darkred;
+  box-shadow: 0px 0px 10px red;
+}
+
+.wrong-answer:hover {
+  box-shadow: 0px 0px 10px red;
 }
 
 .next {
-    font-family: limelight;
-    font-size: 1.1rem;
-    background-color: white;
-    color: #222F42;
+  font-family: limelight;
+  font-size: 1.1rem;
+  background-color: white;
+  color: #222f42;
 }
