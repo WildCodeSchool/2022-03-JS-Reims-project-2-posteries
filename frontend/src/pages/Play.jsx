@@ -35,12 +35,22 @@ export default function Play() {
   const [falseMovie3, setFalseMovie3] = useState();
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
-  const { time, start, reset } = useTimer({
+  const { time, start, reset, pause } = useTimer({
     initialTime: 15,
     timerType: "DECREMENTAL",
     endTime: 0,
     autostart: true,
   });
+
+  const [isAnswerActive, setIsAnswerActive] = useState(false);
+
+  const stopTimer = () => {
+    return pause();
+  };
+
+  useEffect(() => {
+    return stopTimer;
+  }, [isAnswerActive]);
 
   function getMovie() {
     movieIdArray.sort(() => Math.random() - 0.5);
@@ -76,6 +86,7 @@ export default function Play() {
     getMovie();
     reset();
     start();
+    setIsAnswerActive();
   }
 
   useEffect(getMovie, []);
@@ -89,13 +100,19 @@ export default function Play() {
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
         <>
-          <Poster poster={movie.poster_path} title={movie.title} />
+          <Poster
+            poster={movie.poster_path}
+            title={movie.title}
+            isAnswerActive={isAnswerActive}
+          />
           <div className="answers">
             <AnswerList
               title1={movie.title}
               title2={falseMovie1.title}
               title3={falseMovie2.title}
               title4={falseMovie3.title}
+              isAnswerActive={isAnswerActive}
+              setIsAnswerActive={setIsAnswerActive}
             />
           </div>
         </>

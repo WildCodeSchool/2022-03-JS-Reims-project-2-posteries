@@ -26,7 +26,13 @@ function AnswerList(props) {
   ].sort(() => Math.random() - 0.5);
 
   return answersArray.map((data) => (
-    <Answer title={data.title} res={data.res} key={data.id} />
+    <Answer
+      title={data.title}
+      res={data.res}
+      key={data.id}
+      isAnswerActive={props.isAnswerActive}
+      setIsAnswerActive={props.setIsAnswerActive}
+    />
   ));
 }
 
