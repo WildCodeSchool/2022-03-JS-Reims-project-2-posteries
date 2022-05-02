@@ -39,6 +39,7 @@ export default function Play() {
     initialTime: 15,
     timerType: "DECREMENTAL",
     endTime: 0,
+    autostart: true,
   });
 
   function getMovie() {
@@ -80,14 +81,14 @@ export default function Play() {
   useEffect(getMovie, []);
 
   return (
-    <>
+    <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <p>{time}</p>
+        <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
         <p>Points</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
-        <>
+        <div className="desktop-flex">
           <Poster poster={movie.poster_path} title={movie.title} />
           <div className="answers">
             <AnswerList
@@ -97,11 +98,11 @@ export default function Play() {
               title4={falseMovie3.title}
             />
           </div>
-        </>
+        </div>
       )}
       <button type="button" onClick={nextLevel} className="next">
         Next
       </button>
-    </>
+    </div>
   );
 }

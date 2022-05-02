@@ -37,14 +37,24 @@
 body {
   font-family: limelight;
   background-color: #222f42;
+  color : white;
 }
 
-.welcome {
+.welcome ,.play{
   background-color: #222f42;
   background-image: url(https://us.123rf.com/450wm/bahtiarmaulana/bahtiarmaulana1805/bahtiarmaulana180500011/101191237-podium-avec-tapis-rouge-et-corde-de-barri%C3%A8re-%C3%A0-la-lueur-des-projecteurs.jpg?ver=6);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: darken;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 }
 
 .presentation {
@@ -67,13 +77,11 @@ body {
   max-width: 280px;
 }
 
-.welcome {
+.play{
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
 }
 
 .category-list {
@@ -182,4 +190,27 @@ h1 {
   font-size: 1.1rem;
   background-color: white;
   color: #222f42;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .answers {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: 40%;
+    justify-content: center;
+  }
+
+  .desktop-flex {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .centralPoster {
+    flex: none;
+    padding: 1rem;
+    min-width: 40%;
+  }
+  
 }
