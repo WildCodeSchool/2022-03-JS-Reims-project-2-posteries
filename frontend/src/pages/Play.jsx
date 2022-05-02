@@ -44,12 +44,11 @@ export default function Play() {
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
-  const stopTimer = () => {
-    return pause();
-  };
-
   useEffect(() => {
-    return stopTimer;
+    if (isAnswerActive === false) {
+      start();
+    }
+    return () => pause();
   }, [isAnswerActive]);
 
   function getMovie() {
@@ -86,7 +85,7 @@ export default function Play() {
     getMovie();
     reset();
     start();
-    setIsAnswerActive();
+    setIsAnswerActive(false);
   }
 
   useEffect(getMovie, []);
