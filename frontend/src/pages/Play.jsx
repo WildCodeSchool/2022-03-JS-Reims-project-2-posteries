@@ -84,7 +84,7 @@ export default function Play() {
     <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        {time < 10 ? <p>⏱️ 0{time}</p> : <p>⏱️ {time}</p>}
+        <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
         <p>Points</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (

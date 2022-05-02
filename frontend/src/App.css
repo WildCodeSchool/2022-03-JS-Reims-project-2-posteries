@@ -198,7 +198,8 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: 0;
-    width: 40%;
+    min-width: 40%;
+    justify-content: center;
   }
 
   .desktop-flex {
@@ -209,6 +210,7 @@ h1 {
   .centralPoster {
     flex: none;
     padding: 1rem;
+    min-width: 40%;
   }
   
 }
