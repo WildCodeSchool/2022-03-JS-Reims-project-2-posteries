@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTimer } from "use-timer";
 import AnswerList from "../components/AnswerList";
@@ -17,8 +17,7 @@ export default function Play() {
     autostart: true,
   });
 
-  const { movie, falseMovie1, falseMovie2, falseMovie3, getMovies } =
-    useApiCalls();
+  const { movie, pickMovie } = useApiCalls();
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
@@ -30,42 +29,15 @@ export default function Play() {
   }, [isAnswerActive]);
 
   function nextLevel() {
-    getMovies(movieIdArray);
+    pickMovie(movieIdArray);
     reset();
     start();
     setIsAnswerActive(false);
   }
 
   useEffect(() => {
-    getMovies(movieIdArray);
+    pickMovie(movieIdArray);
   }, []);
-
-  const answersArray = useMemo(
-    () =>
-      [
-        {
-          title: movie?.title,
-          res: true,
-          id: 1,
-        },
-        {
-          title: falseMovie1?.title,
-          res: false,
-          id: 2,
-        },
-        {
-          title: falseMovie2?.title,
-          res: false,
-          id: 3,
-        },
-        {
-          title: falseMovie3?.title,
-          res: false,
-          id: 4,
-        },
-      ].sort(() => Math.random() - 0.5),
-    [movie, falseMovie1, falseMovie2, falseMovie3]
-  );
 
   return (
     <div className="play">
@@ -74,7 +46,7 @@ export default function Play() {
         {time < 10 ? <p>⏱️ 0{time}</p> : <p>⏱️ {time}</p>}
         <p>Points</p>
       </div>
-      {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
+      {movie && (
         <>
           <Poster
             poster={movie.poster_path}
@@ -83,15 +55,19 @@ export default function Play() {
           />
           <div className="answers">
             <AnswerList
-              answersArray={answersArray}
+              answersArray={movie.answers}
               isAnswerActive={isAnswerActive}
               setIsAnswerActive={setIsAnswerActive}
             />
           </div>
         </>
       )}
-      <button type="button" onClick={nextLevel} className="next">
-        Next
+      <button
+        type="button"
+        onClick={isAnswerActive ? nextLevel : null}
+        className="next"
+      >
+        {isAnswerActive ? "NEXT" : "NOW SHOWING"}
       </button>
     </div>
   );

@@ -8,38 +8,37 @@ export default ApiCallsContext;
 
 export function ApiCallsContextProvider({ children }) {
   const [movie, setMovie] = useState();
-  const [falseMovie1, setFalseMovie1] = useState();
-  const [falseMovie2, setFalseMovie2] = useState();
-  const [falseMovie3, setFalseMovie3] = useState();
 
-  function getMovies(movieIdArray) {
+  function pickMovie(movieIdArray) {
     movieIdArray.sort(() => Math.random() - 0.5);
 
     setMovie();
-    axios
-      .get(
+    Promise.all([
+      axios.get(
         `https://api.themoviedb.org/3/movie/${movieIdArray[0]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
-      )
-      .then((resp) => resp.data)
-      .then((data) => setMovie(data));
-    axios
-      .get(
+      ),
+      axios.get(
         `https://api.themoviedb.org/3/movie/${movieIdArray[1]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
-      )
-      .then((resp) => resp.data)
-      .then((data) => setFalseMovie1(data));
-    axios
-      .get(
+      ),
+      axios.get(
         `https://api.themoviedb.org/3/movie/${movieIdArray[2]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
-      )
-      .then((resp) => resp.data)
-      .then((data) => setFalseMovie2(data));
-    axios
-      .get(
+      ),
+      axios.get(
         `https://api.themoviedb.org/3/movie/${movieIdArray[3]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
-      )
-      .then((resp) => resp.data)
-      .then((data) => setFalseMovie3(data));
+      ),
+    ]).then((responses) => {
+      const responsesData = responses.map((response) => response.data);
+      setMovie({
+        ...responsesData[0],
+        answers: responsesData
+          .map(({ id, title }, index) => ({
+            title,
+            res: index === 0,
+            id,
+          }))
+          .sort(() => Math.random() - 0.5),
+      });
+    });
   }
 
   return (
@@ -47,10 +46,7 @@ export function ApiCallsContextProvider({ children }) {
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         movie,
-        falseMovie1,
-        falseMovie2,
-        falseMovie3,
-        getMovies,
+        pickMovie,
       }}
     >
       {children}
