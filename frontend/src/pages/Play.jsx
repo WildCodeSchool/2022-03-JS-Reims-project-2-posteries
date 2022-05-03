@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
+import { useModal } from "react-hooks-use-modal";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 
@@ -29,6 +30,8 @@ const movieCatalog = {
 };
 
 export default function Play() {
+  const [score, setscore] = useState(0);
+  const [count, setcount] = useState(2);
   const [movie, setMovie] = useState();
   const [falseMovie1, setFalseMovie1] = useState();
   const [falseMovie2, setFalseMovie2] = useState();
@@ -40,6 +43,10 @@ export default function Play() {
     timerType: "DECREMENTAL",
     endTime: 0,
     autostart: true,
+  });
+  const [Modal, open] = useModal("root", {
+    preventScroll: true,
+    closeOnOverlayClick: false,
   });
 
   function getMovie() {
@@ -73,9 +80,14 @@ export default function Play() {
 
   function nextLevel() {
     setMovie();
+    setscore(score + time);
+    setcount(count + 1);
     getMovie();
     reset();
     start();
+    if (count === 5) {
+      open();
+    }
   }
 
   useEffect(getMovie, []);
@@ -85,7 +97,7 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p>Points</p>
+        <p>{score}</p>
       </div>
       {movie && falseMovie1 && falseMovie2 && falseMovie3 && (
         <div className="desktop-flex">
@@ -103,6 +115,14 @@ export default function Play() {
       <button type="button" onClick={nextLevel} className="next">
         Next
       </button>
+      <Modal>
+        <div className="modal">
+          <p>Salut</p>
+          <Link className="category" to="/">
+            Catégories
+          </Link>
+        </div>
+      </Modal>
     </div>
   );
 }
