@@ -137,6 +137,9 @@ h1 {
 
 .no-blur {
   animation: image_blur ease-in 15s;
+}
+
+.poster {
   box-sizing: border-box;
   width: auto;
   height: 100%;

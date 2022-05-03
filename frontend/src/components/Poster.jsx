@@ -6,7 +6,7 @@ function Poster({ poster, title, isAnswerActive }) {
       <img
         src={`https://image.tmdb.org/t/p/w300${poster}`}
         alt={title}
-        className={isAnswerActive ? "none" : "no-blur"}
+        className={isAnswerActive ? "poster" : "poster no-blur"}
       />
     </div>
   );
