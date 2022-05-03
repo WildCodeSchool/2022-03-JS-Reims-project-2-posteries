@@ -2,31 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTimer } from "use-timer";
+import movieCatalog from "../datas/movieCatalog";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
-
-const movieCatalog = {
-  "Science Fiction": [
-    105, 329, 157336, 11, 335984, 333339, 62, 49047, 603, 19, 75612, 18, 152601,
-    70160, 97, 27205, 264660, 137113, 19995, 10681, 286217, 869, 152, 74, 601,
-    6479, 97370, 9693, 329865, 68,
-  ],
-  Drama: [
-    76203, 13, 14, 492188, 44214, 210577, 376867, 264644, 70, 25793, 773,
-    426426, 12405, 313365, 9800, 489, 393457, 103, 597, 1443, 142, 244786, 462,
-    71, 389015, 359940, 505192, 424, 398818, 334541,
-  ],
-  Horror: [
-    2291, 419430, 694, 794803, 250546, 138843, 503919, 938625, 346364, 396535,
-    565, 2667, 9792, 313922, 418078, 1933, 9003, 176, 571, 242224, 22970,
-    447332, 23827, 11906, 270303, 8329, 310131, 170, 348, 1091,
-  ],
-  Comedy: [
-    680, 4638, 747, 544, 962, 854, 9428, 39513, 9013, 788, 4247, 862, 18785,
-    72105, 9398, 1621, 57214, 115, 496, 620, 762, 137, 703, 813, 11031, 8363,
-    90, 771, 2005, 957,
-  ],
-};
 
 export default function Play() {
   const [movie, setMovie] = useState();
