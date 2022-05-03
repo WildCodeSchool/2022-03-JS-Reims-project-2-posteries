@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-function Answer({ title, res }) {
-  const [isActive, setActive] = useState(false);
-  const activate = () => {
-    setActive(true);
+function Answer({ title, isAnswerActive, setIsAnswerActive, res }) {
+  const activateAnswer = () => {
+    setIsAnswerActive(true);
   };
 
   function resultStyle() {
-    if (isActive) {
+    if (isAnswerActive) {
       if (res === true) {
         return "answer good-answer";
       }
@@ -18,7 +16,7 @@ function Answer({ title, res }) {
   }
 
   return (
-    <button type="submit" onClick={activate} className={resultStyle()}>
+    <button type="submit" onClick={activateAnswer} className={resultStyle()}>
       {title}
     </button>
   );
@@ -26,6 +24,8 @@ function Answer({ title, res }) {
 
 Answer.propTypes = {
   title: PropTypes.string.isRequired,
+  setIsAnswerActive: PropTypes.func.isRequired,
+  isAnswerActive: PropTypes.bool.isRequired,
   res: PropTypes.bool.isRequired,
 };
 
