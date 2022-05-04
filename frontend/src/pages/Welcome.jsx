@@ -1,6 +1,23 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import CategoryList from "../components/CategoryList";
 
 function Welcome() {
+  const [scores, setScores] = useState([]);
+  const getScores = () => {
+    axios
+      .get("http://localhost:5001/scores/")
+      .then((response) => response.data)
+      .then((data) => {
+        const [first, second, third] = data.sort(
+          (a, b) => b.userscore - a.userscore
+        );
+        setScores([first, second, third]);
+      });
+  };
+
+  useEffect(getScores, []);
+
   return (
     <div className="welcome">
       <h1>PoSteries</h1>
@@ -11,6 +28,25 @@ function Welcome() {
       <ul className="category-list">
         <CategoryList />
       </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Ranking</th>
+          </tr>
+        </thead>
+        <tbody>
+          {scores.map((score, index) => (
+            <tr key={score.id}>
+              <td>{score.username}</td>
+              <td>{score.userscore}</td>
+              <td>{index + 1}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div />
     </div>
   );
 }

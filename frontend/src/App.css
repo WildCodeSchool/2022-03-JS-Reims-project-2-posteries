@@ -196,6 +196,15 @@ h1 {
   width: 100%;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: solid 1px white;
+  padding: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .answers {
     display: flex;
