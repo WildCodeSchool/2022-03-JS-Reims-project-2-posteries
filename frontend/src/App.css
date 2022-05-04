@@ -12,7 +12,7 @@
     
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
   
-        text-shadow:
+        box-shadow:
         0 0 4px #fff,
         0 0 11px #fff,
         0 0 19px #fff,
@@ -25,7 +25,7 @@
     }
     
     20%, 24%, 55% {        
-        text-shadow: none;
+        box-shadow: none;
     }    
   }
 
@@ -36,16 +36,36 @@
 
 body {
   font-family: limelight;
-  background-color: #222f42;
-  color : white;
+  background-image: url(./assets/art-deco-background.webp);
 }
 
-.welcome ,.play{
-  background-color: #222f42;
-  background-image: url(https://us.123rf.com/450wm/bahtiarmaulana/bahtiarmaulana1805/bahtiarmaulana180500011/101191237-podium-avec-tapis-rouge-et-corde-de-barri%C3%A8re-%C3%A0-la-lueur-des-projecteurs.jpg?ver=6);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: darken;
+.presentation {
+  background-color: white;
+  opacity: 0.4;
+  line-height: 2rem;
+  margin: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.category {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  background: linear-gradient(to bottom, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
+  color: black;
+  font-family: 'limelight', 'Playfair Display', serif;
+  text-decoration: none;
+}
+
+.category:hover {
+  background: linear-gradient(to top, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
 }
 
 .welcome {
@@ -55,33 +75,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-}
-
-.presentation {
-  color: white;
-  line-height: 1.5rem;
-  margin: 1.5rem;
-}
-
-.category {
-  text-align: center;
-  background-color: #c28c19;
-  color: white;
-  padding: 1rem;
-  font-family: limelight;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 10px;
-  display: inline-block;
-  width: 100%;
-  max-width: 280px;
-}
-
-.play{
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
 }
 
 .category-list {
@@ -98,31 +91,26 @@ body {
   display: flex;
   justify-content: space-around;
   font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 70px;
     font-family: metropolis;
     font-weight: 300;
-    color : #fff;
-    text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #C28C19,
-      0 0 82px #C28C19,
-      0 0 92px #C28C19,
-      0 0 102px #C28C19,
-      0 0 151px #C28C19;
-    animation: flicker 1.5s infinite alternate;
+    background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .centralPoster {
   flex: 1;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -137,13 +125,36 @@ h1 {
 
 .no-blur {
   animation: image_blur ease-in 15s;
-}
-
-.poster {
   box-sizing: border-box;
   width: auto;
   height: 100%;
   object-fit: contain;
+}
+
+.play {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.desktop-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, black 5%, rgb(83, 83, 83) 15%, black 20%, rgb(83, 83, 83) 25%, black 30%, rgb(83, 83, 83) 90%, black 94%);
+  width: 340px;
+  padding: 0.5rem;
+  box-shadow: 0 0 20px darkgrey;
+  border-radius: 1%;
+  margin: auto;
+  
 }
 
 .answers {
@@ -158,42 +169,54 @@ h1 {
 
 .answer {
   text-align: center;
-  background-color: #c28c19;
-  color: white;
+  background: linear-gradient(to bottom, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
+  color: black;
+  font-family: 'Playfair Display', serif;
+  position: relative;	
+	font-size: 18vw;
+	font-weight: 900;
   padding: 1rem;
   font-family: limelight;
   font-size: 1.1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #c28c19, inset 0px 0px 5px #c28c19;
 }
 
 .answer:hover {
-  box-shadow: 0px 0px 5px #c28c19;
+  box-shadow: 0px 0px 20px #c28c19, inset 0px 0px 20px #c28c19;
 }
 
 .good-answer {
-  background-color: darkgreen;
-  box-shadow: 0px 0px 10px limegreen;
+ 
+  box-shadow: 0px 0px 20px limegreen, inset 0px 0px 20px limegreen;
 }
 .good-answer:hover {
-  box-shadow: 0px 0px 10px limegreen;
+  box-shadow: 0px 0px 20px limegreen, inset 0px 0px 20px limegreen;
 }
 
 .wrong-answer {
-  background-color: darkred;
-  box-shadow: 0px 0px 10px red;
+
+  box-shadow: 0px 0px 20px red, inset 0px 0px 20px red;
 }
 
 .wrong-answer:hover {
-  box-shadow: 0px 0px 10px red;
+  box-shadow: 0px 0px 20px red, inset 0px 0px 20px red;
 }
 
-.next {
+.now-showing {
+  border: none;
   font-family: limelight;
   font-size: 1.1rem;
   background-color: white;
   color: #222f42;
-  width: 100%;
+  width: 80%;
+  margin: 0.5rem;
+  box-shadow: inset 0px 0px 5px darkslategray;
+}
+
+.next {
+  animation: flicker 1.5s infinite alternate;
 }
 
 @media screen and (min-width: 768px) {
@@ -215,5 +238,5 @@ h1 {
     padding: 1rem;
     min-width: 40%;
   }
-  
+
 }
