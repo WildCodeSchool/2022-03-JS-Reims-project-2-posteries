@@ -35,9 +35,11 @@ export default function Play() {
     return () => pause();
   }, [isAnswerActive]);
 
-  const activateAnswer = () => {
+  const activateAnswer = (currentAnswer) => {
     setIsAnswerActive(true);
-    setScore(score + time);
+    if (currentAnswer) {
+      setScore(score + time);
+    }
   };
 
   function nextLevel() {

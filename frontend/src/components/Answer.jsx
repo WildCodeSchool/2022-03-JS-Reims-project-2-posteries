@@ -12,7 +12,11 @@ function Answer({ title, isAnswerActive, res, activateAnswer }) {
   }
 
   return (
-    <button type="submit" onClick={activateAnswer} className={resultStyle()}>
+    <button
+      type="submit"
+      onClick={() => activateAnswer(res)}
+      className={resultStyle()}
+    >
       {title}
     </button>
   );
