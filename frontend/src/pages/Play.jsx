@@ -64,16 +64,26 @@ export default function Play() {
     <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p>{score}</p>
+        <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
+        <p className="infos central">{count}</p>
+        <p className="infos">{score}</p>
       </div>
       {movie && (
-        <>
-          <Poster
-            poster={movie.poster_path}
-            title={movie.title}
-            isAnswerActive={isAnswerActive}
-          />
+        <div className="desktop-flex">
+          <div className="frame">
+            <Poster
+              poster={movie.poster_path}
+              title={movie.title}
+              isAnswerActive={isAnswerActive}
+            />
+            <button
+              type="button"
+              onClick={isAnswerActive ? nextLevel : null}
+              className={isAnswerActive ? "now-showing next" : "now-showing"}
+            >
+              {isAnswerActive ? "NEXT" : "NOW SHOWING"}
+            </button>
+          </div>
           <div className="answers">
             <AnswerList
               answersArray={movie.answers}
@@ -83,19 +93,12 @@ export default function Play() {
               isDisable={isDisable}
             />
           </div>
-        </>
+        </div>
       )}
-      <button
-        type="button"
-        onClick={isAnswerActive ? nextLevel : null}
-        className="next"
-      >
-        {isAnswerActive ? "NEXT" : "NOW SHOWING"}
-      </button>
       <Modal>
         <div className="modal">
-          <p>Salut</p>
-          <Link to="/">Catégories</Link>
+          <p>Score: {score} / 75</p>
+          <Link to="/">Back To The Menu</Link>
         </div>
       </Modal>
     </div>
