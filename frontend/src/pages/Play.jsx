@@ -120,7 +120,11 @@ export default function Play() {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
-            <input type="submit" value="submit" />
+            <input
+              type="submit"
+              value="submit"
+              disabled={!!isUsernameSubmitted}
+            />
           </form>
           <div>{isUsernameSubmitted && <p>Your score is submitted</p>}</div>
         </div>
