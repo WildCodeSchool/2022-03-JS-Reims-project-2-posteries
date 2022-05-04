@@ -35,9 +35,9 @@ export default function Play() {
     return () => pause();
   }, [isAnswerActive]);
 
-  const activateAnswer = (currentAnswer) => {
+  const activateAnswer = (isValid) => {
     setIsAnswerActive(true);
-    if (currentAnswer) {
+    if (isValid) {
       setScore(score + time);
     }
     if (count === 5) {
