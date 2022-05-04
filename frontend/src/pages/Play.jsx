@@ -40,6 +40,9 @@ export default function Play() {
     if (currentAnswer) {
       setScore(score + time);
     }
+    if (count === 5) {
+      open();
+    }
   };
 
   function nextLevel() {
@@ -48,9 +51,6 @@ export default function Play() {
     reset();
     start();
     setIsAnswerActive(false);
-    if (count === 5) {
-      open();
-    }
   }
 
   useEffect(() => {
