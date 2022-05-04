@@ -1,10 +1,6 @@
 import PropTypes from "prop-types";
 
-function Answer({ title, isAnswerActive, setIsAnswerActive, res }) {
-  const activateAnswer = () => {
-    setIsAnswerActive(true);
-  };
-
+function Answer({ title, isAnswerActive, res, activateAnswer }) {
   function resultStyle() {
     if (isAnswerActive) {
       if (res === true) {
@@ -16,7 +12,11 @@ function Answer({ title, isAnswerActive, setIsAnswerActive, res }) {
   }
 
   return (
-    <button type="submit" onClick={activateAnswer} className={resultStyle()}>
+    <button
+      type="submit"
+      onClick={() => activateAnswer(res)}
+      className={resultStyle()}
+    >
       {title}
     </button>
   );
@@ -24,7 +24,7 @@ function Answer({ title, isAnswerActive, setIsAnswerActive, res }) {
 
 Answer.propTypes = {
   title: PropTypes.string.isRequired,
-  setIsAnswerActive: PropTypes.func.isRequired,
+  activateAnswer: PropTypes.func.isRequired,
   isAnswerActive: PropTypes.bool.isRequired,
   res: PropTypes.bool.isRequired,
 };
