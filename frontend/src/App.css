@@ -219,6 +219,12 @@ h1 {
   animation: flicker 1.5s infinite alternate;
 }
 
+.modal{
+  width: 200px;
+  height: 200px;
+  background-color: #C28C19;
+}
+
 @media screen and (min-width: 768px) {
   .answers {
     display: flex;

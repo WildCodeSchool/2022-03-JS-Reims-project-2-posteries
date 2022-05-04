@@ -8,6 +8,7 @@ function AnswerList(props) {
       key={data.id}
       isAnswerActive={props.isAnswerActive}
       setIsAnswerActive={props.setIsAnswerActive}
+      activateAnswer={props.activateAnswer}
     />
   ));
 }

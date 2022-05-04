@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
+import { useModal } from "react-hooks-use-modal";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
 
 export default function Play() {
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(1);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
 
@@ -15,6 +18,10 @@ export default function Play() {
     timerType: "DECREMENTAL",
     endTime: 0,
     autostart: true,
+  });
+  const [Modal, open] = useModal("root", {
+    preventScroll: true,
+    closeOnOverlayClick: false,
   });
 
   const { movie, pickMovie } = useApiCalls();
@@ -28,8 +35,19 @@ export default function Play() {
     return () => pause();
   }, [isAnswerActive]);
 
+  const activateAnswer = (isValid) => {
+    setIsAnswerActive(true);
+    if (isValid) {
+      setScore(score + time);
+    }
+    if (count === 5) {
+      open();
+    }
+  };
+
   function nextLevel() {
     pickMovie(movieIdArray);
+    setCount(count + 1);
     reset();
     start();
     setIsAnswerActive(false);
@@ -44,7 +62,7 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p>Points</p>
+        <p>{score}</p>
       </div>
       {movie && (
         <div className="desktop-flex">
@@ -67,10 +85,17 @@ export default function Play() {
               answersArray={movie.answers}
               isAnswerActive={isAnswerActive}
               setIsAnswerActive={setIsAnswerActive}
+              activateAnswer={activateAnswer}
             />
           </div>
         </div>
       )}
+      <Modal>
+        <div className="modal">
+          <p>Salut</p>
+          <Link to="/">Catégories</Link>
+        </div>
+      </Modal>
     </div>
   );
 }
