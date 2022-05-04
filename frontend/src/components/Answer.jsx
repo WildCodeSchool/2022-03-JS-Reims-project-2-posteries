@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Answer({ title, isAnswerActive, res, activateAnswer }) {
+function Answer({ title, isAnswerActive, res, activateAnswer, isDisable }) {
   function resultStyle() {
     if (isAnswerActive) {
       if (res === true) {
@@ -13,6 +13,7 @@ function Answer({ title, isAnswerActive, res, activateAnswer }) {
 
   return (
     <button
+      disabled={isDisable}
       type="submit"
       onClick={() => activateAnswer(res)}
       className={resultStyle()}
@@ -27,6 +28,7 @@ Answer.propTypes = {
   activateAnswer: PropTypes.func.isRequired,
   isAnswerActive: PropTypes.bool.isRequired,
   res: PropTypes.bool.isRequired,
+  isDisable: PropTypes.bool.isRequired,
 };
 
 export default Answer;
