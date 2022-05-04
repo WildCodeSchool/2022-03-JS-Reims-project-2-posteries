@@ -61,15 +61,9 @@ export default function Play() {
     <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <div className="infos">
-          <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        </div>
-        <div className="infos central">
-          <p>{count}</p>
-        </div>
-        <div className="infos">
-          <p>{score}</p>
-        </div>
+        <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
+        <p className="infos central">{count}</p>
+        <p className="infos">{score}</p>
       </div>
       {movie && (
         <div className="desktop-flex">

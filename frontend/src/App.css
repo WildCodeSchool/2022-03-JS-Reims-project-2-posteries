@@ -9,25 +9,23 @@
 }
 
 @keyframes flicker {
-    
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-  
-        box-shadow:
-        0 0 4px #fff,
-        0 0 11px #fff,
-        0 0 19px #fff,
-        0 0 40px #C28C19,
-        0 0 80px #C28C19,
-        0 0 90px #C28C19,
-        0 0 100px #C28C19,
-        0 0 150px #C28C19;
-    
-    }
-    
-    20%, 24%, 55% {        
-        box-shadow: none;
-    }    
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #c28c19,
+      0 0 80px #c28c19, 0 0 90px #c28c19, 0 0 100px #c28c19, 0 0 150px #c28c19;
   }
+
+  20%,
+  24%,
+  55% {
+    box-shadow: none;
+  }
+}
 
 * {
   margin: 0;
@@ -58,14 +56,30 @@ body {
   display: inline-block;
   width: 100%;
   max-width: 280px;
-  background: linear-gradient(to bottom, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #3a2c0f 78%
+  );
   color: black;
-  font-family: 'limelight', 'Playfair Display', serif;
+  font-family: "limelight", "Playfair Display", serif;
   text-decoration: none;
 }
 
 .category:hover {
-  background: linear-gradient(to top, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
+  background: linear-gradient(
+    to top,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #3a2c0f 78%
+  );
 }
 
 .welcome {
@@ -92,31 +106,55 @@ body {
   justify-content: space-around;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 22%,
+    #634f2c 24%,
+    #cfc09f 26%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #3a2c0f 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h1 {
-    text-align: center;
-    font-size: 70px;
-    font-family: metropolis;
-    font-weight: 300;
-    background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 1rem;
+  text-align: center;
+  font-size: 70px;
+  font-family: metropolis;
+  font-weight: 300;
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 22%,
+    #634f2c 24%,
+    #cfc09f 26%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #3a2c0f 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
 }
 
 .infos {
   text-align: center;
-  background-color: linear-gradient(to bottom, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
-  font-family: 'limelight', 'Playfair Display', serif;
-	font-weight: 900;
+  background-color: linear-gradient(
+    to bottom,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #3a2c0f 78%
+  );
+  font-family: "limelight", "Playfair Display", serif;
+  font-weight: 900;
   font-size: 2rem;
 }
 
-.central{
+.central {
   padding-right: 3rem;
 }
 
@@ -160,13 +198,21 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(90deg, black 5%, rgb(83, 83, 83) 15%, black 20%, rgb(83, 83, 83) 25%, black 30%, rgb(83, 83, 83) 90%, black 94%);
+  background: linear-gradient(
+    90deg,
+    black 5%,
+    rgb(83, 83, 83) 15%,
+    black 20%,
+    rgb(83, 83, 83) 25%,
+    black 30%,
+    rgb(83, 83, 83) 90%,
+    black 94%
+  );
   width: 340px;
   padding: 0.5rem;
   box-shadow: 0 0 20px darkgrey;
   border-radius: 1%;
   margin: auto;
-  
 }
 
 .answers {
@@ -181,12 +227,20 @@ h1 {
 
 .answer {
   text-align: center;
-  background: linear-gradient(to bottom, #cfc09f 12%,#634f2c 14%, #cfc09f 23%, #cfc09f 27%,#ffecb3 45%,#3a2c0f 78%);
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #3a2c0f 78%
+  );
   color: black;
-  font-family: 'limelight', 'Playfair Display', serif;
-  position: relative;	
-	font-size: 18vw;
-	font-weight: 900;
+  font-family: "limelight", "Playfair Display", serif;
+  position: relative;
+  font-size: 18vw;
+  font-weight: 900;
   padding: 1rem;
   font-size: 1.1rem;
   border: none;
@@ -199,7 +253,6 @@ h1 {
 }
 
 .good-answer {
- 
   box-shadow: 0px 0px 20px limegreen, inset 0px 0px 20px limegreen;
 }
 .good-answer:hover {
@@ -207,7 +260,6 @@ h1 {
 }
 
 .wrong-answer {
-
   box-shadow: 0px 0px 20px red, inset 0px 0px 20px red;
 }
 
@@ -221,8 +273,7 @@ h1 {
   font-size: 1.1rem;
   background-color: white;
   color: #222f42;
-  width: 80%;
-  margin: 0.5rem;
+  padding: .3rem 5rem;
   box-shadow: inset 0px 0px 5px darkslategray;
 }
 
@@ -230,18 +281,26 @@ h1 {
   animation: flicker 1.5s infinite alternate;
 }
 
-.modal{
+.modal {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 150px;
   text-align: center;
-  background: linear-gradient(to bottom, #cfc09f 1%, #634f2c 7%, #cfc09f 23%, #cfc09f 27%,#ffecb3 65%,#3a2c0f 93%);
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 1%,
+    #634f2c 7%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 65%,
+    #3a2c0f 93%
+  );
   color: black;
-  font-family: 'limelight', 'Playfair Display', serif;
-  position: relative;	
-	font-size: 18vw;
-	font-weight: 900;
+  font-family: "limelight", "Playfair Display", serif;
+  position: relative;
+  font-size: 18vw;
+  font-weight: 900;
   padding: 1rem;
   font-size: 1.1rem;
   border: none;
@@ -272,5 +331,4 @@ h1 {
     padding: 1rem;
     min-width: 40%;
   }
-
 }
