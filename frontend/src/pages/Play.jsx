@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
+import axios from "axios";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 import { useApiCalls } from "../context/ApiCallsContext";
@@ -23,6 +24,23 @@ export default function Play() {
     preventScroll: true,
     closeOnOverlayClick: false,
   });
+  const [username, setUsername] = useState("");
+  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
+
+  const postUser = () => {
+    axios
+      .post("http://localhost:5001/scores/", {
+        username,
+        userscore: score,
+      })
+      .then((response) => response);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsUsernameSubmitted(true);
+    postUser();
+  };
 
   const { movie, pickMovie } = useApiCalls();
 
@@ -92,6 +110,19 @@ export default function Play() {
         <div className="modal">
           <p>Salut</p>
           <Link to="/">Catégories</Link>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">
+              Enter your name to save your score:{" "}
+            </label>
+            <input
+              type="text"
+              placeholder="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <input type="submit" value="submit" />
+          </form>
+          <div>{isUsernameSubmitted && <p>Your score is submitted</p>}</div>
         </div>
       </Modal>
     </div>
