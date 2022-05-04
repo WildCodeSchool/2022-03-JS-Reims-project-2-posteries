@@ -8,8 +8,8 @@ import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
 
 export default function Play() {
-  const [score, setscore] = useState(0);
-  const [count, setcount] = useState(2);
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(1);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
 
@@ -35,10 +35,14 @@ export default function Play() {
     return () => pause();
   }, [isAnswerActive]);
 
+  const activateAnswer = () => {
+    setIsAnswerActive(true);
+    setScore(score + time);
+  };
+
   function nextLevel() {
     pickMovie(movieIdArray);
-    setscore(score + time);
-    setcount(count + 1);
+    setCount(count + 1);
     reset();
     start();
     setIsAnswerActive(false);
@@ -70,6 +74,7 @@ export default function Play() {
               answersArray={movie.answers}
               isAnswerActive={isAnswerActive}
               setIsAnswerActive={setIsAnswerActive}
+              activateAnswer={activateAnswer}
             />
           </div>
         </>
@@ -84,9 +89,7 @@ export default function Play() {
       <Modal>
         <div className="modal">
           <p>Salut</p>
-          <Link className="category" to="/">
-            Catégories
-          </Link>
+          <Link to="/">Catégories</Link>
         </div>
       </Modal>
     </div>
