@@ -61,8 +61,15 @@ export default function Play() {
     <div className="play">
       <h1>Posteries</h1>
       <div className="timerPoints">
-        <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p>{score}</p>
+        <div className="infos">
+          <p>{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
+        </div>
+        <div className="infos central">
+          <p>{count}</p>
+        </div>
+        <div className="infos">
+          <p>{score}</p>
+        </div>
       </div>
       {movie && (
         <div className="desktop-flex">
@@ -92,8 +99,8 @@ export default function Play() {
       )}
       <Modal>
         <div className="modal">
-          <p>Salut</p>
-          <Link to="/">Catégories</Link>
+          <p>Score: {score} / 75</p>
+          <Link to="/">Back To The Menu</Link>
         </div>
       </Modal>
     </div>
