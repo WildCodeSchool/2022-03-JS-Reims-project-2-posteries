@@ -15,7 +15,7 @@ export default function Play() {
   const movieIdArray = movieCatalog[category];
 
   const { time, start, reset, pause } = useTimer({
-    initialTime: 300,
+    initialTime: 15,
     timerType: "DECREMENTAL",
     endTime: 0,
     autostart: true,
