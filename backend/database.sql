@@ -39,7 +39,7 @@ CREATE TABLE `score` (
 INSERT INTO `score` (`id`, `username`, `userscore`) VALUES
 (1, 'Stuff', 86),
 (2, 'Doodads', 35);
-
+(3, 'Louis', 20);
 --
 -- Index pour les tables exportées
 --

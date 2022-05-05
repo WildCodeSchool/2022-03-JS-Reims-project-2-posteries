@@ -3,10 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
   const [score, setScore] = useState(0);
@@ -29,10 +31,15 @@ export default function Play() {
 
   const postUser = () => {
     axios
-      .post("http://localhost:5001/scores/", {
-        username,
-        userscore: score,
-      })
+      .post(
+        `${
+          import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+        }/scores/`,
+        {
+          username,
+          userscore: score,
+        }
+      )
       .then((response) => response);
   };
 
@@ -40,6 +47,9 @@ export default function Play() {
     event.preventDefault();
     setIsUsernameSubmitted(true);
     postUser();
+    toast.success("Your score is submitted", {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
   };
 
   const { movie, pickMovie } = useApiCalls();
@@ -112,7 +122,6 @@ export default function Play() {
       <Modal>
         <div className="modal">
           <p>Score: {score} / 75</p>
-          <Link to="/">Back To The Menu</Link>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
               Enter your name to save your score:{" "}
@@ -129,7 +138,8 @@ export default function Play() {
               disabled={!!isUsernameSubmitted}
             />
           </form>
-          <div>{isUsernameSubmitted && <p>Your score is submitted</p>}</div>
+          <Link to="/">Back To The Menu</Link>
+          <ToastContainer />
         </div>
       </Modal>
     </div>

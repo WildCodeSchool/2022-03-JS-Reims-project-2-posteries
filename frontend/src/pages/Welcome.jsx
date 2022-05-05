@@ -6,7 +6,9 @@ function Welcome() {
   const [scores, setScores] = useState([]);
   const getScores = () => {
     axios
-      .get("http://localhost:5001/scores/")
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/scores/`
+      )
       .then((response) => response.data)
       .then((data) => {
         const [first, second, third] = data.sort(
