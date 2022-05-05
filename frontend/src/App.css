@@ -307,9 +307,18 @@ h1 {
   border-radius: 20px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: solid 1px white;
+  padding: 0.5rem;
+  color: white;
+}
+
 .modal > a {
   color: black;
-  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {

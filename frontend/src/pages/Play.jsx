@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
+import { ToastContainer, toast } from "react-toastify";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const [score, setScore] = useState(0);
+  const { movie, pickMovie, postUser, score, setScore } = useApiCalls();
+  const username = useRef();
   const [count, setCount] = useState(1);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
@@ -24,7 +27,16 @@ export default function Play() {
     closeOnOverlayClick: false,
   });
 
-  const { movie, pickMovie } = useApiCalls();
+  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsUsernameSubmitted(true);
+    postUser(username.current.value);
+    toast.success("Your score is submitted", {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
+  };
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
@@ -94,7 +106,19 @@ export default function Play() {
       <Modal>
         <div className="modal">
           <p>Score: {score} / 75</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">
+              Enter your name to save your score:{" "}
+            </label>
+            <input type="text" placeholder="username" ref={username} />
+            <input
+              type="submit"
+              value="submit"
+              disabled={!!isUsernameSubmitted}
+            />
+          </form>
           <Link to="/">Back To The Menu</Link>
+          <ToastContainer />
         </div>
       </Modal>
     </div>
