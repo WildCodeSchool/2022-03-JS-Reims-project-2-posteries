@@ -10,7 +10,6 @@ import movieCatalog from "../datas/movieCatalog";
 export default function Play() {
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(1);
-  const [isDisable, setIsDisable] = useState(false);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
 
@@ -44,7 +43,6 @@ export default function Play() {
     if (count === 5) {
       open();
     }
-    setIsDisable(true);
   };
 
   function nextLevel() {
@@ -53,7 +51,6 @@ export default function Play() {
     reset();
     start();
     setIsAnswerActive(false);
-    setIsDisable(false);
   }
 
   useEffect(() => {
@@ -90,7 +87,6 @@ export default function Play() {
               isAnswerActive={isAnswerActive}
               setIsAnswerActive={setIsAnswerActive}
               activateAnswer={activateAnswer}
-              isDisable={isDisable}
             />
           </div>
         </div>

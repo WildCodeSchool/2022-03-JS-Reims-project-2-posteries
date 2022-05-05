@@ -9,7 +9,6 @@ function AnswerList(props) {
       isAnswerActive={props.isAnswerActive}
       setIsAnswerActive={props.setIsAnswerActive}
       activateAnswer={props.activateAnswer}
-      isDisable={props.isDisable}
     />
   ));
 }
