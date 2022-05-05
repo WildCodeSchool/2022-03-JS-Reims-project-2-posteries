@@ -10,8 +10,6 @@ export function ApiCallsContextProvider({ children }) {
   const [movie, setMovie] = useState();
 
   function pickMovie(movieIdArray) {
-    movieIdArray.sort(() => Math.random() - 0.5);
-
     setMovie();
     Promise.all([
       axios.get(
@@ -39,6 +37,7 @@ export function ApiCallsContextProvider({ children }) {
           .sort(() => Math.random() - 0.5),
       });
     });
+    movieIdArray.push(movieIdArray.splice(0, 1));
   }
 
   return (

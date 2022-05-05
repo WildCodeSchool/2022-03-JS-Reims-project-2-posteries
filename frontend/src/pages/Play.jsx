@@ -54,6 +54,7 @@ export default function Play() {
   }
 
   useEffect(() => {
+    movieIdArray.sort(() => Math.random() - 0.5);
     pickMovie(movieIdArray);
   }, []);
 
