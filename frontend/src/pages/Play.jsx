@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
@@ -11,7 +10,8 @@ import movieCatalog from "../datas/movieCatalog";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const [score, setScore] = useState(0);
+  const { movie, pickMovie, postUser, score, setScore, username, setUsername } =
+    useApiCalls();
   const [count, setCount] = useState(1);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
@@ -26,22 +26,8 @@ export default function Play() {
     preventScroll: true,
     closeOnOverlayClick: false,
   });
-  const [username, setUsername] = useState("");
-  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
 
-  const postUser = () => {
-    axios
-      .post(
-        `${
-          import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
-        }/scores/`,
-        {
-          username,
-          userscore: score,
-        }
-      )
-      .then((response) => response);
-  };
+  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,8 +37,6 @@ export default function Play() {
       position: toast.POSITION.BOTTOM_CENTER,
     });
   };
-
-  const { movie, pickMovie } = useApiCalls();
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 

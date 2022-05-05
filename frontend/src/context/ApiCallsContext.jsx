@@ -40,6 +40,36 @@ export function ApiCallsContextProvider({ children }) {
       });
     });
   }
+  const [username, setUsername] = useState("");
+  const [score, setScore] = useState(0);
+  const postUser = () => {
+    axios
+      .post(
+        `${
+          import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+        }/scores/`,
+        {
+          username,
+          userscore: score,
+        }
+      )
+      .then((response) => response);
+  };
+
+  const [scores, setScores] = useState([]);
+  const getScores = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/scores/`
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        const [first, second, third] = data.sort(
+          (a, b) => b.userscore - a.userscore
+        );
+        setScores([first, second, third]);
+      });
+  };
 
   return (
     <ApiCallsContext.Provider
@@ -47,6 +77,13 @@ export function ApiCallsContextProvider({ children }) {
       value={{
         movie,
         pickMovie,
+        postUser,
+        score,
+        setScore,
+        username,
+        setUsername,
+        scores,
+        getScores,
       }}
     >
       {children}

@@ -1,22 +1,9 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useApiCalls } from "../context/ApiCallsContext";
 import CategoryList from "../components/CategoryList";
 
 function Welcome() {
-  const [scores, setScores] = useState([]);
-  const getScores = () => {
-    axios
-      .get(
-        `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/scores/`
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        const [first, second, third] = data.sort(
-          (a, b) => b.userscore - a.userscore
-        );
-        setScores([first, second, third]);
-      });
-  };
+  const { scores, getScores } = useApiCalls();
 
   useEffect(getScores, []);
 
