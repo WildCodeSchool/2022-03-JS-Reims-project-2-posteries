@@ -40,9 +40,9 @@ export function ApiCallsContextProvider({ children }) {
       });
     });
   }
-  const [username, setUsername] = useState("");
+
   const [score, setScore] = useState(0);
-  const postUser = () => {
+  const postUser = (username) => {
     axios
       .post(
         `${
@@ -80,8 +80,6 @@ export function ApiCallsContextProvider({ children }) {
         postUser,
         score,
         setScore,
-        username,
-        setUsername,
         scores,
         getScores,
       }}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
@@ -10,8 +10,8 @@ import movieCatalog from "../datas/movieCatalog";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const { movie, pickMovie, postUser, score, setScore, username, setUsername } =
-    useApiCalls();
+  const { movie, pickMovie, postUser, score, setScore } = useApiCalls();
+  const username = useRef();
   const [count, setCount] = useState(1);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
@@ -32,7 +32,7 @@ export default function Play() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsUsernameSubmitted(true);
-    postUser();
+    postUser(username.current.value);
     toast.success("Your score is submitted", {
       position: toast.POSITION.BOTTOM_CENTER,
     });
@@ -110,12 +110,7 @@ export default function Play() {
             <label htmlFor="username">
               Enter your name to save your score:{" "}
             </label>
-            <input
-              type="text"
-              placeholder="username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
+            <input type="text" placeholder="username" ref={username} />
             <input
               type="submit"
               value="submit"
