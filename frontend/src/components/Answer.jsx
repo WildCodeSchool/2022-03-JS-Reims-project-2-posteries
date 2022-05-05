@@ -13,6 +13,7 @@ function Answer({ title, isAnswerActive, res, activateAnswer }) {
 
   return (
     <button
+      disabled={isAnswerActive}
       type="submit"
       onClick={() => activateAnswer(res)}
       className={resultStyle()}
