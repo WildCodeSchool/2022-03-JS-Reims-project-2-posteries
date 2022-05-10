@@ -41,8 +41,7 @@ export function ApiCallsContextProvider({ children }) {
     });
   }
 
-  const [score, setScore] = useState(0);
-  const postUser = (username) => {
+  const postUser = (username, score) => {
     axios
       .post(
         `${
@@ -75,8 +74,6 @@ export function ApiCallsContextProvider({ children }) {
         movie,
         pickMovie,
         postUser,
-        score,
-        setScore,
         scores,
         getScores,
       }}
