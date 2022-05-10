@@ -11,6 +11,7 @@ export function ApiCallsContextProvider({ children }) {
 
   function pickMovie(movieIdArray, n) {
     setMovie();
+
     Promise.all([
       axios.get(
         `https://api.themoviedb.org/3/movie/${
