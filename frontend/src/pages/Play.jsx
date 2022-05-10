@@ -63,7 +63,7 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p className="infos central">{count}</p>
+        <p className="infos central">{count}/5</p>
         <p className="infos">{score}</p>
       </div>
       {movie && (
