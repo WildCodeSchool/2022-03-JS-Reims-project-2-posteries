@@ -64,30 +64,7 @@ export function ApiCallsContextProvider({ children }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        const [
-          first,
-          second,
-          third,
-          fourth,
-          fifth,
-          sixth,
-          seventh,
-          eighth,
-          ninth,
-          tenth,
-        ] = data.sort((a, b) => b.userscore - a.userscore);
-        setScores([
-          first,
-          second,
-          third,
-          fourth,
-          fifth,
-          sixth,
-          seventh,
-          eighth,
-          ninth,
-          tenth,
-        ]);
+        setScores(data.sort((a, b) => b.userscore - a.userscore).slice(0, 10));
       });
   };
 

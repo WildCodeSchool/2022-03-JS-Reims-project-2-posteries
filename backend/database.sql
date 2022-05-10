@@ -37,9 +37,16 @@ CREATE TABLE `score` (
 --
 
 INSERT INTO `score` (`id`, `username`, `userscore`) VALUES
-(1, 'Stuff', 86),
-(2, 'Doodads', 35);
-(3, 'Louis', 20);
+(1, 'Stuff', 73),
+(2, 'Doodads', 35),
+(3, 'Louis', 20),
+(4, 'Aafar', 8),
+(5, 'Nibor', 39),
+(6, 'Alex', 43),
+(7, 'Quentin', 56),
+(8, 'Maman', 30),
+(9, 'Simon', 24),
+(10, 'Valou', 19);
 --
 -- Index pour les tables exportées
 --
@@ -58,7 +65,7 @@ ALTER TABLE `score`
 -- AUTO_INCREMENT pour la table `score`
 --
 ALTER TABLE `score`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
