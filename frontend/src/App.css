@@ -173,6 +173,7 @@ h1 {
 }
 
 .infos {
+  display: inherit;
   text-align: center;
   background-color: var(--golden-bg-tobottom);
   font-family: "limelight", "Playfair Display", serif;
@@ -181,7 +182,8 @@ h1 {
 }
 
 .central {
-  padding-right: 3rem;
+  display: inherit;
+  justify-content: center;
 }
 
 .centralPoster {
