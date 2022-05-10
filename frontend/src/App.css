@@ -27,6 +27,60 @@
   }
 }
 
+:root {
+  --golden-bg-tobottom: linear-gradient(
+    to bottom,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #634f2c 78%
+  );
+
+  --golden-bg-totop: linear-gradient(
+    to top,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
+    #cfc09f 27%,
+    #ffecb3 45%,
+    #634f2c 78%
+  );
+
+  --silver-bg-tobottom: linear-gradient(
+    to bottom,
+    #fffefb 12%,
+    #d4d2d0 14%,
+    #aaa59c 23%,
+    #f5ead1 27%,
+    #f3f2ef 45%,
+    #a8a294 78%
+  );
+
+  --silver-bg-totop: linear-gradient(
+    to top,
+    #fffefb 12%,
+    #d4d2d0 14%,
+    #aaa59c 23%,
+    #f5ead1 27%,
+    #f3f2ef 45%,
+    #a8a294 78%
+  );
+
+  --light-gold-bg-tobottom: linear-gradient(
+    to bottom,
+    #cfc09f 18%,
+    #b48f50 24%,
+    #cfc09f 29%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #a7854a 78%
+  );
+
+  --text-color: #151d29;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -35,6 +89,7 @@
 body {
   font-family: limelight;
   background-image: url(./assets/art-deco-background.webp);
+  backdrop-filter: brightness(70%);
 }
 
 .presentation {
@@ -56,30 +111,14 @@ body {
   display: inline-block;
   width: 100%;
   max-width: 280px;
-  background: linear-gradient(
-    to bottom,
-    #cfc09f 12%,
-    #634f2c 14%,
-    #cfc09f 23%,
-    #cfc09f 27%,
-    #ffecb3 45%,
-    #3a2c0f 78%
-  );
-  color: black;
+  background: var(--golden-bg-tobottom);
+  color: var(--text-color);
   font-family: "limelight", "Playfair Display", serif;
   text-decoration: none;
 }
 
 .category:hover {
-  background: linear-gradient(
-    to top,
-    #cfc09f 12%,
-    #634f2c 14%,
-    #cfc09f 23%,
-    #cfc09f 27%,
-    #ffecb3 45%,
-    #3a2c0f 78%
-  );
+  background: var(--golden-bg-totop);
 }
 
 .welcome {
@@ -106,15 +145,7 @@ body {
   justify-content: space-around;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  background: linear-gradient(
-    to bottom,
-    #cfc09f 22%,
-    #634f2c 24%,
-    #cfc09f 26%,
-    #cfc09f 27%,
-    #ffecb3 40%,
-    #3a2c0f 78%
-  );
+  background: var(--golden-bg-tobottom);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -124,31 +155,26 @@ h1 {
   font-size: 70px;
   font-family: metropolis;
   font-weight: 300;
-  background: linear-gradient(
-    to bottom,
-    #cfc09f 22%,
-    #634f2c 24%,
-    #cfc09f 26%,
-    #cfc09f 27%,
-    #ffecb3 40%,
-    #3a2c0f 78%
-  );
+  background: var(--golden-bg-tobottom);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 1rem;
 }
 
+.scoreboard {
+  background: var(--silver-bg-tobottom);
+  color: #151d29;
+  font-family: "limelight", "Playfair Display", serif;
+  text-decoration: none;
+}
+
+.scoreboard:hover {
+  background: var(--silver-bg-totop);
+}
+
 .infos {
   text-align: center;
-  background-color: linear-gradient(
-    to bottom,
-    #cfc09f 12%,
-    #634f2c 14%,
-    #cfc09f 23%,
-    #cfc09f 27%,
-    #ffecb3 45%,
-    #3a2c0f 78%
-  );
+  background-color: var(--golden-bg-tobottom);
   font-family: "limelight", "Playfair Display", serif;
   font-weight: 900;
   font-size: 2rem;
@@ -227,16 +253,8 @@ h1 {
 
 .answer {
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #cfc09f 12%,
-    #634f2c 14%,
-    #cfc09f 23%,
-    #cfc09f 27%,
-    #ffecb3 45%,
-    #3a2c0f 78%
-  );
-  color: black;
+  background: var(--golden-bg-tobottom);
+  color: #151d29;
   font-family: "limelight", "Playfair Display", serif;
   position: relative;
   font-size: 18vw;
@@ -272,7 +290,7 @@ h1 {
   font-family: limelight;
   font-size: 1.1rem;
   background-color: white;
-  color: #222f42;
+  color: var(--text-color);
   padding: .3rem 5rem;
   box-shadow: inset 0px 0px 5px darkslategray;
 }
@@ -287,15 +305,7 @@ h1 {
   justify-content: space-evenly;
   height: 150px;
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #cfc09f 1%,
-    #634f2c 7%,
-    #cfc09f 23%,
-    #cfc09f 27%,
-    #ffecb3 65%,
-    #3a2c0f 93%
-  );
+  background: var(--golden-bg-tobottom);
   color: black;
   font-family: "limelight", "Playfair Display", serif;
   position: relative;
@@ -308,20 +318,27 @@ h1 {
 }
 
 h3 {
-  color: white;
+  background: var(--golden-bg-tobottom);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 table {
+  background: var(--light-gold-bg-tobottom);
   border-collapse: collapse;
   border-radius: 20px;
   margin-bottom: 1rem;
 }
 
 td, th {
-  border-bottom: solid 2px white;
+  border-bottom: solid 2px var(--text-color);
   padding: 0.5rem;
   width: 4rem;
-  color: white;
+  color: var(--text-color);
+}
+
+tr:last-child > td {
+  border-bottom: none;
 }
 
 .modal > a {
