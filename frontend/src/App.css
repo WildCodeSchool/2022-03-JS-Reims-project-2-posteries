@@ -180,6 +180,7 @@ h1 {
   width: auto;
   height: 100%;
   object-fit: contain;
+  max-height: 480px;
 }
 
 .play {
@@ -193,10 +194,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex:1;
 }
 
 .frame {
   display: flex;
+  flex : 1;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(
@@ -209,11 +212,12 @@ h1 {
     rgb(83, 83, 83) 90%,
     black 94%
   );
-  width: 340px;
+  /* width: 340px; */
   padding: 0.5rem;
   box-shadow: 0 0 20px darkgrey;
   border-radius: 1%;
   margin: auto;
+  max-height: 540px;
 }
 
 .answers {
@@ -275,8 +279,9 @@ h1 {
   font-size: 1.1rem;
   background-color: white;
   color: #222f42;
-  padding: .3rem 5rem;
+  padding: .3rem 0rem;
   box-shadow: inset 0px 0px 5px darkslategray;
+  min-width: 200px;
 }
 
 .next {
@@ -314,7 +319,7 @@ h1 {
   text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .answers {
     display: flex;
     flex-direction: column;
@@ -324,8 +329,8 @@ h1 {
   }
 
   .desktop-flex {
-    flex-direction: row;
     justify-content: space-around;
+    flex-direction: row;
   }
 
   .centralPoster {
@@ -336,5 +341,6 @@ h1 {
 
   .frame{
     margin: 0;
+    max-width: 350px;
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function Poster({ poster, title, isAnswerActive }) {
   return (
     <img
-      src={`https://image.tmdb.org/t/p/w300${poster}`}
+      src={`https://image.tmdb.org/t/p/w200${poster}`}
       alt={title}
       className={
         isAnswerActive ? "blur centralPoster" : "no-blur centralPoster"
