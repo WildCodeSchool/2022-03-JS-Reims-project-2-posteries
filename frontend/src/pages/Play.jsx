@@ -84,11 +84,6 @@ export default function Play() {
       {movie && (
         <div className="desktop-flex">
           <div className="frame">
-            <Poster
-              poster={movie.poster_path}
-              title={movie.title}
-              isAnswerActive={isAnswerActive}
-            />
             <button
               type="button"
               onClick={isAnswerActive ? nextLevel : null}
@@ -96,6 +91,11 @@ export default function Play() {
             >
               {isAnswerActive ? "NEXT" : "NOW SHOWING"}
             </button>
+            <Poster
+              poster={movie.poster_path}
+              title={movie.title}
+              isAnswerActive={isAnswerActive}
+            />
           </div>
           <div className="answers">
             <AnswerList
