@@ -1,6 +1,5 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
 import AnswerList from "../components/AnswerList";
@@ -8,11 +7,9 @@ import Poster from "../components/Poster";
 import ResultModal from "../components/ResultModal";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const { movie, pickMovie, postUser } = useApiCalls();
-  const username = useRef();
+  const { movie, pickMovie } = useApiCalls();
   const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
   const { category } = useParams();
@@ -28,20 +25,6 @@ export default function Play() {
     preventScroll: true,
     closeOnOverlayClick: false,
   });
-
-  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsUsernameSubmitted(true);
-    postUser(username.current.value, score);
-    toast.success(
-      `Thanks ${username.current.value}, your score is submitted!`,
-      {
-        position: toast.POSITION.BOTTOM_CENTER,
-      }
-    );
-  };
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
@@ -109,12 +92,7 @@ export default function Play() {
         </div>
       )}
       <Modal>
-        <ResultModal
-          score={score}
-          handleSubmit={handleSubmit}
-          username={username}
-          isUsernameSubmitted={isUsernameSubmitted}
-        />
+        <ResultModal score={score} />
       </Modal>
     </div>
   );

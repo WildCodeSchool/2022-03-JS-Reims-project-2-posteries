@@ -1,8 +1,27 @@
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState, useRef } from "react";
+import { useApiCalls } from "../context/ApiCallsContext";
 
-function ResultModal({ score, handleSubmit, username, isUsernameSubmitted }) {
+function ResultModal({ score }) {
+  const username = useRef();
+  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
+  const { postUser } = useApiCalls();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsUsernameSubmitted(true);
+    postUser(username.current.value, score);
+    toast.success(
+      `Thanks ${username.current.value}, your score is submitted!`,
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+      }
+    );
+  };
+
   return (
     <div className="modal">
       <p>{score} / 75</p>
@@ -28,12 +47,8 @@ function ResultModal({ score, handleSubmit, username, isUsernameSubmitted }) {
     </div>
   );
 }
-
 ResultModal.propTypes = {
   score: PropTypes.number.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  username: PropTypes.node.isRequired,
-  isUsernameSubmitted: PropTypes.bool.isRequired,
 };
 
 export default ResultModal;
