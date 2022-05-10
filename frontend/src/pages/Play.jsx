@@ -79,7 +79,7 @@ export default function Play() {
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
         <p className="infos central">{count} / 5</p>
-        <p className="infos">{score}</p>
+        <p className="infos">{score} pts</p>
       </div>
       {movie && (
         <div className="desktop-flex">

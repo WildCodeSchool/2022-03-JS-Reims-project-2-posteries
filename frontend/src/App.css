@@ -35,6 +35,7 @@
 body {
   font-family: limelight;
   background-image: url(./assets/art-deco-background.webp);
+  backdrop-filter: brightness(70%);
 }
 
 .presentation {
@@ -63,9 +64,9 @@ body {
     #cfc09f 23%,
     #cfc09f 27%,
     #ffecb3 45%,
-    #3a2c0f 78%
+    #634f2c 78%
   );
-  color: black;
+  color: #151d29;
   font-family: "limelight", "Playfair Display", serif;
   text-decoration: none;
 }
@@ -78,7 +79,7 @@ body {
     #cfc09f 23%,
     #cfc09f 27%,
     #ffecb3 45%,
-    #3a2c0f 78%
+    #634f2c 78%
   );
 }
 
@@ -108,12 +109,12 @@ body {
   margin-bottom: 0.5rem;
   background: linear-gradient(
     to bottom,
-    #cfc09f 22%,
-    #634f2c 24%,
-    #cfc09f 26%,
+    #cfc09f 12%,
+    #634f2c 14%,
+    #cfc09f 23%,
     #cfc09f 27%,
-    #ffecb3 40%,
-    #3a2c0f 78%
+    #ffecb3 45%,
+    #634f2c 78%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -126,16 +127,52 @@ h1 {
   font-weight: 300;
   background: linear-gradient(
     to bottom,
-    #cfc09f 22%,
+    #cfc09f 18%,
     #634f2c 24%,
-    #cfc09f 26%,
+    #cfc09f 29%,
     #cfc09f 27%,
     #ffecb3 40%,
-    #3a2c0f 78%
+    #634f2c 78%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 1rem;
+}
+
+.scoreboard {
+ text-align: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  background: linear-gradient(
+    to bottom,
+    #fffefb 12%,
+    #d4d2d0 14%,
+    #aaa59c 23%,
+    #f5ead1 27%,
+    #f3f2ef 45%,
+    #a8a294 78%
+  );
+  color: #151d29;
+  font-family: "limelight", "Playfair Display", serif;
+  text-decoration: none;
+}
+
+.scoreboard:hover {
+  background: linear-gradient(
+    to top,
+    #fffefb 12%,
+    #d4d2d0 14%,
+    #aaa59c 23%,
+    #f5ead1 27%,
+    #f3f2ef 45%,
+    #a8a294 78%
+  );
 }
 
 .infos {
@@ -234,9 +271,9 @@ h1 {
     #cfc09f 23%,
     #cfc09f 27%,
     #ffecb3 45%,
-    #3a2c0f 78%
+    #634f2c 78%
   );
-  color: black;
+  color: #151d29;
   font-family: "limelight", "Playfair Display", serif;
   position: relative;
   font-size: 18vw;
@@ -272,7 +309,7 @@ h1 {
   font-family: limelight;
   font-size: 1.1rem;
   background-color: white;
-  color: #222f42;
+  color: #151d29;
   padding: .3rem 5rem;
   box-shadow: inset 0px 0px 5px darkslategray;
 }
@@ -308,20 +345,43 @@ h1 {
 }
 
 h3 {
-  color: white;
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 18%,
+    #634f2c 24%,
+    #cfc09f 29%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #634f2c 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 table {
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 18%,
+    #b48f50 24%,
+    #cfc09f 29%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #a7854a 78%
+  );
   border-collapse: collapse;
   border-radius: 20px;
   margin-bottom: 1rem;
 }
 
 td, th {
-  border-bottom: solid 2px white;
+  border-bottom: solid 2px #151d29;
   padding: 0.5rem;
   width: 4rem;
-  color: white;
+  color: #151d29;
+}
+
+tr:last-child > td {
+  border-bottom: none;
 }
 
 .modal > a {
