@@ -14,22 +14,22 @@ export function ApiCallsContextProvider({ children }) {
     Promise.all([
       axios.get(
         `https://api.themoviedb.org/3/movie/${
-          movieIdArray[0 + n]
+          movieIdArray[0 + n * 4]
         }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
         `https://api.themoviedb.org/3/movie/${
-          movieIdArray[1 + n]
+          movieIdArray[1 + n * 4]
         }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
         `https://api.themoviedb.org/3/movie/${
-          movieIdArray[2 + n]
+          movieIdArray[2 + n * 4]
         }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
         `https://api.themoviedb.org/3/movie/${
-          movieIdArray[3 + n]
+          movieIdArray[3 + n * 4]
         }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
     ]).then((responses) => {
