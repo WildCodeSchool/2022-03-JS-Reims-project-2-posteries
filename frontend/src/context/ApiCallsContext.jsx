@@ -37,7 +37,7 @@ export function ApiCallsContextProvider({ children }) {
           .sort(() => Math.random() - 0.5),
       });
     });
-    movieIdArray.push(movieIdArray.splice(0, 1));
+    movieIdArray.splice(0, 4).map((x) => movieIdArray.push(x));
   }
 
   return (
