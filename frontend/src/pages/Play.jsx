@@ -46,7 +46,7 @@ export default function Play() {
   };
 
   function nextLevel() {
-    pickMovie(movieIdArray);
+    pickMovie(movieIdArray, (count + 1) * 4);
     setCount(count + 1);
     reset();
     start();
@@ -55,7 +55,7 @@ export default function Play() {
 
   useEffect(() => {
     movieIdArray.sort(() => Math.random() - 0.5);
-    pickMovie(movieIdArray);
+    pickMovie(movieIdArray, count * 4);
   }, []);
 
   return (
