@@ -307,13 +307,20 @@ h1 {
   border-radius: 20px;
 }
 
+h3 {
+  color: white;
+}
+
 table {
   border-collapse: collapse;
+  border-radius: 20px;
+  margin-bottom: 1rem;
 }
 
 td, th {
-  border: solid 1px white;
+  border-bottom: solid 2px white;
   padding: 0.5rem;
+  width: 4rem;
   color: white;
 }
 
