@@ -212,12 +212,12 @@ h1 {
     rgb(83, 83, 83) 90%,
     black 94%
   );
-  /* width: 340px; */
   padding: 0.5rem;
   box-shadow: 0 0 20px darkgrey;
   border-radius: 1%;
   margin: auto;
   max-height: 540px;
+  min-width: 340px;
 }
 
 .answers {
@@ -336,7 +336,7 @@ h1 {
   .centralPoster {
     flex: none;
     padding: 1rem;
-    min-width: 40%;
+    min-width: 300px;
   }
 
   .frame{
