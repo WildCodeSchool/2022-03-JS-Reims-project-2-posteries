@@ -1,13 +1,13 @@
 const express = require("express");
 
-const { ItemController } = require("./controllers");
+const { ScoreController } = require("./controllers");
 
 const router = express.Router();
 
-router.get("/items", ItemController.browse);
-router.get("/items/:id", ItemController.read);
-router.put("/items/:id", ItemController.edit);
-router.post("/items", ItemController.add);
-router.delete("/items/:id", ItemController.delete);
+router.get("/scores", ScoreController.browse);
+router.get("/scores/:id", ScoreController.read);
+router.put("/scores/:id", ScoreController.edit);
+router.post("/scores", ScoreController.add);
+router.delete("/scores/:id", ScoreController.delete);
 
 module.exports = router;

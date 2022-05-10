@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
+import ResultModal from "../components/ResultModal";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
 
 export default function Play() {
+  const { movie, pickMovie } = useApiCalls();
+  const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
-  const [count, setCount] = useState(0);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
 
@@ -23,8 +25,6 @@ export default function Play() {
     preventScroll: true,
     closeOnOverlayClick: false,
   });
-
-  const { movie, pickMovie } = useApiCalls();
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
@@ -40,7 +40,7 @@ export default function Play() {
     if (isValid) {
       setScore(score + time);
     }
-    if (count === 4) {
+    if (count === 5) {
       open();
     }
   };
@@ -63,17 +63,12 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p className="infos central">{count + 1}</p>
-        <p className="infos">{score}</p>
+        <p className="infos central">{count} / 5</p>
+        <p className="infos">{score} pts</p>
       </div>
       {movie && (
         <div className="desktop-flex">
           <div className="frame">
-            <Poster
-              poster={movie.poster_path}
-              title={movie.title}
-              isAnswerActive={isAnswerActive}
-            />
             <button
               type="button"
               onClick={isAnswerActive ? nextLevel : null}
@@ -81,6 +76,11 @@ export default function Play() {
             >
               {isAnswerActive ? "NEXT" : "NOW SHOWING"}
             </button>
+            <Poster
+              poster={movie.poster_path}
+              title={movie.title}
+              isAnswerActive={isAnswerActive}
+            />
           </div>
           <div className="answers">
             <AnswerList
@@ -93,10 +93,7 @@ export default function Play() {
         </div>
       )}
       <Modal>
-        <div className="modal">
-          <p>Score: {score} / 75</p>
-          <Link to="/">Back To The Menu</Link>
-        </div>
+        <ResultModal score={score} />
       </Modal>
     </div>
   );
