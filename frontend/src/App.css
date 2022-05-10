@@ -328,6 +328,29 @@ td, th {
   color: black;
 }
 
+.rules-button {
+  display: inherit;
+  align-self: flex-end;
+  margin-right: 1rem;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  font-family: limelight;
+  font-size: 2rem;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    #cfc09f 22%,
+    #634f2c 24%,
+    #cfc09f 26%,
+    #cfc09f 27%,
+    #ffecb3 40%,
+    #3a2c0f 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media screen and (min-width: 768px) {
   .answers {
     display: flex;

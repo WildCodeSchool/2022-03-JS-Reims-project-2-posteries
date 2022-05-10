@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
-import { ToastContainer, toast } from "react-toastify";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
+import ResultModal from "../components/ResultModal";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,7 +34,7 @@ export default function Play() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsUsernameSubmitted(true);
-    postUser(username.current.value);
+    postUser(username.current.value, score);
     toast.success(
       `Thanks ${username.current.value}, your score is submitted!`,
       {
@@ -79,7 +80,7 @@ export default function Play() {
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
         <p className="infos central">{count} / 5</p>
-        <p className="infos">{score}</p>
+        <p className="infos">{score} pts</p>
       </div>
       {movie && (
         <div className="desktop-flex">
@@ -108,27 +109,12 @@ export default function Play() {
         </div>
       )}
       <Modal>
-        <div className="modal">
-          <p>{score} / 75</p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">
-              Save your score:{" "}
-              <input
-                id="username"
-                type="text"
-                placeholder="Enter your name"
-                ref={username}
-              />
-            </label>
-            <input
-              type="submit"
-              value="submit"
-              disabled={!!isUsernameSubmitted}
-            />
-          </form>
-          <Link to="/">Back To The Menu</Link>
-          <ToastContainer />
-        </div>
+        <ResultModal
+          score={score}
+          handleSubmit={handleSubmit}
+          username={username}
+          isUsernameSubmitted={isUsernameSubmitted}
+        />
       </Modal>
     </div>
   );
