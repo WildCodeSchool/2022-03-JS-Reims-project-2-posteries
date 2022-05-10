@@ -12,7 +12,7 @@ function Welcome() {
       <ul className="category-list">
         <CategoryList />
       </ul>
-      <Link className="scoreboard" to="/scores">
+      <Link className="category scoreboard" to="/scores">
         Scoreboard
       </Link>
     </div>

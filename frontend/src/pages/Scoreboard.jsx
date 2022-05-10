@@ -29,7 +29,7 @@ function Scoreboard() {
           ))}
         </tbody>
       </table>
-      <Link className="scoreboard" to="/">
+      <Link className="category scoreboard" to="/">
         Back to the menu
       </Link>
     </div>

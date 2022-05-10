@@ -140,15 +140,6 @@ h1 {
 }
 
 .scoreboard {
- text-align: center;
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: bolder;
-  border: none;
-  border-radius: 10px;
-  display: inline-block;
-  width: 100%;
-  max-width: 280px;
   background: linear-gradient(
     to bottom,
     #fffefb 12%,
