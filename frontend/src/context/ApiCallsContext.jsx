@@ -40,12 +40,41 @@ export function ApiCallsContextProvider({ children }) {
     movieIdArray.splice(0, 4).map((x) => movieIdArray.push(x));
   }
 
+  const postUser = (username, score) => {
+    axios
+      .post(
+        `${
+          import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+        }/scores/`,
+        {
+          username,
+          userscore: score,
+        }
+      )
+      .then((response) => response);
+  };
+
+  const [scores, setScores] = useState([]);
+  const getScores = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/scores/`
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        setScores(data.sort((a, b) => b.userscore - a.userscore).slice(0, 10));
+      });
+  };
+
   return (
     <ApiCallsContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         movie,
         pickMovie,
+        postUser,
+        scores,
+        getScores,
       }}
     >
       {children}

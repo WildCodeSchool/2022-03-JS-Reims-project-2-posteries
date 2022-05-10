@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CategoryList from "../components/CategoryList";
 
 function Welcome() {
@@ -11,6 +12,9 @@ function Welcome() {
       <ul className="category-list">
         <CategoryList />
       </ul>
+      <Link className="category scoreboard" to="/scores">
+        Scoreboard
+      </Link>
     </div>
   );
 }
