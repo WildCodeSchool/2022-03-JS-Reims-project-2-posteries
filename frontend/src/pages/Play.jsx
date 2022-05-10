@@ -1,17 +1,15 @@
-import { useEffect, useState, useRef } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
-import { ToastContainer, toast } from "react-toastify";
 import AnswerList from "../components/AnswerList";
 import Poster from "../components/Poster";
+import ResultModal from "../components/ResultModal";
 import { useApiCalls } from "../context/ApiCallsContext";
 import movieCatalog from "../datas/movieCatalog";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const { movie, pickMovie, postUser } = useApiCalls();
-  const username = useRef();
+  const { movie, pickMovie } = useApiCalls();
   const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
   const { category } = useParams();
@@ -27,20 +25,6 @@ export default function Play() {
     preventScroll: true,
     closeOnOverlayClick: false,
   });
-
-  const [isUsernameSubmitted, setIsUsernameSubmitted] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsUsernameSubmitted(true);
-    postUser(username.current.value);
-    toast.success(
-      `Thanks ${username.current.value}, your score is submitted!`,
-      {
-        position: toast.POSITION.BOTTOM_CENTER,
-      }
-    );
-  };
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
 
@@ -108,27 +92,7 @@ export default function Play() {
         </div>
       )}
       <Modal>
-        <div className="modal">
-          <p>{score} / 75</p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">
-              Save your score:{" "}
-              <input
-                id="username"
-                type="text"
-                placeholder="Enter your name"
-                ref={username}
-              />
-            </label>
-            <input
-              type="submit"
-              value="submit"
-              disabled={!!isUsernameSubmitted}
-            />
-          </form>
-          <Link to="/">Back To The Menu</Link>
-          <ToastContainer />
-        </div>
+        <ResultModal score={score} />
       </Modal>
     </div>
   );
