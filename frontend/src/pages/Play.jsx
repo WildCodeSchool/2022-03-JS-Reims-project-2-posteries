@@ -10,9 +10,10 @@ import movieCatalog from "../datas/movieCatalog";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Play() {
-  const { movie, pickMovie, postUser, score, setScore } = useApiCalls();
+  const { movie, pickMovie, postUser } = useApiCalls();
   const username = useRef();
   const [count, setCount] = useState(1);
+  const [score, setScore] = useState(0);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
 
@@ -33,9 +34,12 @@ export default function Play() {
     event.preventDefault();
     setIsUsernameSubmitted(true);
     postUser(username.current.value);
-    toast.success("Your score is submitted", {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
+    toast.success(
+      `Thanks ${username.current.value}, your score is submitted!`,
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+      }
+    );
   };
 
   const [isAnswerActive, setIsAnswerActive] = useState(false);
@@ -74,7 +78,7 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p className="infos central">{count}</p>
+        <p className="infos central">{count} / 5</p>
         <p className="infos">{score}</p>
       </div>
       {movie && (
@@ -105,12 +109,17 @@ export default function Play() {
       )}
       <Modal>
         <div className="modal">
-          <p>Score: {score} / 75</p>
+          <p>{score} / 75</p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
-              Enter your name to save your score:{" "}
+              Save your score:{" "}
+              <input
+                id="username"
+                type="text"
+                placeholder="Enter your name"
+                ref={username}
+              />
             </label>
-            <input type="text" placeholder="username" ref={username} />
             <input
               type="submit"
               value="submit"
