@@ -15,14 +15,19 @@ function Welcome() {
 
   return (
     <div className="welcome">
+      <h1>PoSteries</h1>
+      <div className="category-list">
+        <h3>Choose your movie genre :</h3>
+        <ul>
+          <CategoryList />
+        </ul>
+      </div>
+      <Link className="category scoreboard" to="/scores">
+        Scoreboard
+      </Link>
       <button className="rules-button" type="button" onClick={displayRules}>
         ?
       </button>
-      <h1>PoSteries</h1>
-      <ul className="category-list">
-        <CategoryList />
-      </ul>
-      <Link to="/scores">Scoreboard</Link>
       <Modal>
         <RulesModal />
       </Modal>

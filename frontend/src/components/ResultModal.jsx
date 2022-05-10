@@ -8,7 +8,7 @@ function ResultModal({ score, handleSubmit, username, isUsernameSubmitted }) {
       <p>{score} / 75</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">
-          Save your score:{" "}
+          Save your score: <br />
           <input
             id="username"
             type="text"
@@ -16,7 +16,12 @@ function ResultModal({ score, handleSubmit, username, isUsernameSubmitted }) {
             ref={username}
           />
         </label>
-        <input type="submit" value="submit" disabled={!!isUsernameSubmitted} />
+        <input
+          type="submit"
+          value="submit"
+          disabled={!!isUsernameSubmitted}
+          className="scoreboard"
+        />
       </form>
       <Link to="/">Back To The Menu</Link>
       <ToastContainer />
@@ -27,7 +32,7 @@ function ResultModal({ score, handleSubmit, username, isUsernameSubmitted }) {
 ResultModal.propTypes = {
   score: PropTypes.number.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.node.isRequired,
   isUsernameSubmitted: PropTypes.bool.isRequired,
 };
 
