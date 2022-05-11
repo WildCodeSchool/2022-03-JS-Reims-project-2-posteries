@@ -70,10 +70,14 @@ export default function Play() {
           <div className="frame">
             <button
               type="button"
-              onClick={isAnswerActive ? nextLevel : null}
-              className={isAnswerActive ? "now-showing next" : "now-showing"}
+              onClick={isAnswerActive || time === 0 ? nextLevel : null}
+              className={
+                isAnswerActive || time === 0
+                  ? "now-showing next"
+                  : "now-showing"
+              }
             >
-              {isAnswerActive ? "NEXT" : "NOW SHOWING"}
+              {isAnswerActive || time === 0 ? "NEXT" : "NOW SHOWING"}
             </button>
             <Poster
               poster={movie.poster_path}
@@ -84,7 +88,7 @@ export default function Play() {
           <div className="answers">
             <AnswerList
               answersArray={movie.answers}
-              isAnswerActive={isAnswerActive}
+              isAnswerActive={isAnswerActive || time === 0}
               setIsAnswerActive={setIsAnswerActive}
               activateAnswer={activateAnswer}
             />
