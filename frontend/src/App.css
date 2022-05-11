@@ -12,7 +12,6 @@
   0%,
   18%,
   22%,
-  25%,
   53%,
   57%,
   100% {
@@ -21,7 +20,6 @@
   }
 
   20%,
-  24%,
   55% {
     box-shadow: none;
   }
@@ -88,8 +86,7 @@
 
 body {
   font-family: limelight;
-  background-image: url(./assets/art-deco-background.webp);
-  backdrop-filter: brightness(70%);
+  background-image: url(./assets/art-deco-background.png);
 }
 
 .presentation {
@@ -138,6 +135,7 @@ body {
 .category-item {
   width: 100%;
   margin-bottom: 2rem;
+  list-style-type: none;
 }
 
 .timerPoints {
@@ -191,7 +189,6 @@ h1 {
 }
 
 .centralPoster {
-  flex: 1;
   padding: 0.5rem;
   text-align: center;
 }
@@ -207,27 +204,33 @@ h1 {
 
 .no-blur {
   animation: image_blur ease-in 15s;
+}
+
+.blur, .no-blur{
   box-sizing: border-box;
   width: auto;
   height: 100%;
   object-fit: contain;
+  max-height: 480px;
 }
 
 .play {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .desktop-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex:1;
 }
 
 .frame {
   display: flex;
+  flex : 1;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(
@@ -240,11 +243,12 @@ h1 {
     rgb(83, 83, 83) 90%,
     black 94%
   );
-  width: 340px;
   padding: 0.5rem;
   box-shadow: 0 0 20px darkgrey;
   border-radius: 1%;
   margin: auto;
+  max-height: 540px;
+  min-width: 340px;
 }
 
 .answers {
@@ -296,9 +300,10 @@ h1 {
   font-family: limelight;
   font-size: 1.1rem;
   background-color: white;
+  padding: .4rem 0rem;
   color: var(--text-color);
-  padding: .4rem 5rem;
   box-shadow: inset 0px 0px 5px darkslategray;
+  min-width: 200px;
 }
 
 .next {
@@ -370,7 +375,7 @@ tr:last-child > td {
   line-height: 1.5;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .answers {
     display: flex;
     flex-direction: column;
@@ -380,13 +385,19 @@ tr:last-child > td {
   }
 
   .desktop-flex {
-    display: flex;
     justify-content: space-around;
+    flex-direction: row;
   }
 
   .centralPoster {
     flex: none;
     padding: 1rem;
-    min-width: 40%;
+    min-width: 300px;
+  }
+
+  .frame{
+    margin: 0;
+    max-width: 350px;
   }
 }
+
