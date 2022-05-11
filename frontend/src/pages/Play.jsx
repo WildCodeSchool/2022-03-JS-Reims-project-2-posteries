@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useTimer } from "use-timer";
 import { useModal } from "react-hooks-use-modal";
 import AnswerList from "../components/AnswerList";
@@ -59,7 +59,9 @@ export default function Play() {
 
   return (
     <div className="play">
-      <h1>Posteries</h1>
+      <Link className="title-link" to="/">
+        <h1>Posteries</h1>
+      </Link>
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
         <p className="infos central">{count} / 5</p>

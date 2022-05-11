@@ -161,6 +161,10 @@ h1 {
   margin-top: 1rem;
 }
 
+.title-link {
+  text-decoration: none;
+}
+
 .scoreboard {
   background: var(--silver-bg-tobottom);
   color: var(--text-color);
