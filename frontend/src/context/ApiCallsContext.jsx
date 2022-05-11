@@ -9,22 +9,29 @@ export default ApiCallsContext;
 export function ApiCallsContextProvider({ children }) {
   const [movie, setMovie] = useState();
 
-  function pickMovie(movieIdArray) {
-    movieIdArray.sort(() => Math.random() - 0.5);
-
+  function pickMovie(movieIdArray, n) {
     setMovie();
+
     Promise.all([
       axios.get(
-        `https://api.themoviedb.org/3/movie/${movieIdArray[0]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
+        `https://api.themoviedb.org/3/movie/${
+          movieIdArray[0 + n * 4]
+        }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
-        `https://api.themoviedb.org/3/movie/${movieIdArray[1]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
+        `https://api.themoviedb.org/3/movie/${
+          movieIdArray[1 + n * 4]
+        }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
-        `https://api.themoviedb.org/3/movie/${movieIdArray[2]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
+        `https://api.themoviedb.org/3/movie/${
+          movieIdArray[2 + n * 4]
+        }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
       axios.get(
-        `https://api.themoviedb.org/3/movie/${movieIdArray[3]}?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
+        `https://api.themoviedb.org/3/movie/${
+          movieIdArray[3 + n * 4]
+        }?api_key=df8d2d90ff4e6f4a0f1e460dda3a4a35`
       ),
     ]).then((responses) => {
       const responsesData = responses.map((response) => response.data);
