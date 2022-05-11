@@ -10,7 +10,7 @@ import movieCatalog from "../datas/movieCatalog";
 
 export default function Play() {
   const { movie, pickMovie } = useApiCalls();
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   const [score, setScore] = useState(0);
   const { category } = useParams();
   const movieIdArray = movieCatalog[category];
@@ -40,7 +40,7 @@ export default function Play() {
     if (isValid) {
       setScore(score + time);
     }
-    if (count === 5) {
+    if (count === 4) {
       open();
     }
   };
@@ -63,7 +63,7 @@ export default function Play() {
       <h1>Posteries</h1>
       <div className="timerPoints">
         <p className="infos">{time < 10 ? `⏱️ 0${time}` : `⏱️ ${time}`}</p>
-        <p className="infos central">{count} / 5</p>
+        <p className="infos central">{count + 1} / 5</p>
         <p className="infos">{score} pts</p>
       </div>
       {movie && (
